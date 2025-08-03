@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <record id="school_student_list" model="ir.ui.view">
+            <field name="name">school.student.list</field>
+            <field name="model">school.student</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="enrollment_id"/>
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                    <field name="gender"/>
+                    <field name="classroom_id"/>
+                    <field name="admission_date"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="school_student_form" model="ir.ui.view">
+            <field name="name">school.student.form</field>
+            <field name="model">school.student</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group string="Personal Information">
+                                <field name="first_name"/>
+                                <field name="last_name"/>
+                                <field name="email"/>
+                                <field name="mobile"/>
+                                <field name="gender"/>
+                                <field name="birth_date"/>
+                                <field name="classroom_id"/>
+                                <field name="is_monitor"/>
+                            </group>
+
+                            <group string="Residential Information">
+                                <field name="current_address"/>
+                                <field name="same_as_current"/>
+                                <field name="permanent_address"/>
+                            </group>
+
+                            <group string="Parent Details">
+                                <field name="father_name"/>
+                                <field name="father_occupation"/>
+                                <field name="mother_name"/>
+                                <field name="mother_occupation"/>
+                                <field name="parent_email"/>
+                                <field name="parent_mobile"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

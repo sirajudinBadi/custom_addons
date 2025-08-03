@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <!--Menu Item-->
+        <menuitem id="school_management_root_menu"
+                  name="School Management"
+                  sequence="1"
+        />
+
+        <!--Student Menu Without Action-->
+        <menuitem id="student_menu"
+                  name="Students"
+                  parent="school_management_root_menu"
+                  sequence="1"
+        />
+
+        <!--Student Sub-Menu With Action (List/Form View)-->
+        <menuitem id="student_submenu"
+                  name="Student Records"
+                  parent="student_menu"
+                  action="action_school_student"
+                  sequence="1"
+        />
+
+        <!--Teacher Menu-->
+        <menuitem id="teacher_menu"
+                  name="Teachers"
+                  parent="school_management_root_menu"
+                  sequence="2"
+        />
+
+        <menuitem id="teacher_submenu"
+                  name="Teacher Records"
+                  parent="teacher_menu"
+                  action="action_school_teacher"
+                  sequence="1"
+        />
+
+        <!--Classroom Menu-->
+        <menuitem id="classroom_menu"
+                  name="Classrooms"
+                  parent="school_management_root_menu"
+                  sequence="3"
+        />
+
+        <menuitem id="classroom_submenu"
+                  name="Classroom Records"
+                  parent="classroom_menu"
+                  action="action_school_classroom"
+                  sequence="1"
+        />
+
+        <!--Subject Menu-->
+        <menuitem id="subject_menu"
+                  name="Subjects"
+                  parent="school_management_root_menu"
+                  sequence="4"
+        />
+
+        <menuitem id="subject_submenu"
+                  name="Subject Records"
+                  parent="subject_menu"
+                  sequence="1"
+                  action="action_school_subject"
+        />
+    </data>
+
+</odoo>

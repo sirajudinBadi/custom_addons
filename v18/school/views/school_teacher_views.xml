@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+        <record id="school_teacher_list" model="ir.ui.view">
+            <field name="name">school.teacher.list</field>
+            <field name="model">school.teacher</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                    <field name="join_date"/>
+                    <field name="classroom_id"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="school_teacher_form" model="ir.ui.view">
+            <field name="name">school.teacher.form</field>
+            <field name="model">school.teacher</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group string="Basic Details">
+                                <field name="first_name"/>
+                                <field name="last_name"/>
+                                <field name="join_date"/>
+                                <field name="is_class_teacher"/>
+                                <field name="classroom_id"/>
+                            </group>
+
+                            <group string="Specification Details">
+                                <field name="classroom_ids"/>
+                                <field name="subject_ids"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
