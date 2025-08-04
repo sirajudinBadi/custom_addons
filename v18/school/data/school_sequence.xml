@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data noupdate="1">
+        <record id="sequence_student_enrollment" model="ir.sequence">
+            <field name="name">Student EnrollmentID</field>
+            <field name="code">student.enrollment</field>
+            <field name="prefix">S</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+        </record>
+
+        <record id="sequence_teacher_employment" model="ir.sequence">
+            <field name="name">Teacher EmploymentID</field>
+            <field name="code">teacher.employment</field>
+            <field name="prefix">T</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+        </record>
+    </data>
+</odoo>

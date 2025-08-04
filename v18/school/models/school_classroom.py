@@ -1,24 +1,26 @@
 # -*- coding : utf-8 -*-
 
 from odoo import fields, models, api
-from odoo.api import ondelete
 
 
 class Classroom(models.Model):
     _name = "school.classroom"
     _inherit = ['soft.delete.mixin']
     _description = "Classroom"
+    _order = "name asc"
+    # _rec_name = "name"  # WON'T NEED BECAUSE THERE IS ALREADY name FIELD
 
     name=fields.Char(string="Class Name", required=True)
-
     location = fields.Char(string="Classroom Location", required=True)
+
+    active = fields.Boolean(string="Active", default=True)
+
     cls_monitor_id = fields.Many2one(
         comodel_name="school.student",
         string="Class Monitor",
         ondelete="set null",
         domain="[('is_monitor', '=', 'True')]",
         help="Select a student as class monitor",
-        unique=True,
     )
 
     cls_teacher_id = fields.Many2one(

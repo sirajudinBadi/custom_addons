@@ -39,5 +39,22 @@
                 </form>
             </field>
         </record>
+
+        <record id="school_classroom_search" model="ir.ui.view">
+            <field name="name">school.classroom.search</field>
+            <field name="model">school.classroom</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+
+                    <!--                    <filter string="Deleted" name="deleted" domain="[('is_deleted', '=', True)]" context="{'include_deleted': True}" />-->
+                    <filter string="Deleted" name="deleted"
+                            domain="[('is_deleted', '=', True)]"
+                            context="{'include_deleted': True}"/>
+
+                    <filter string="Active" name="active" domain="[('is_deleted', '=', False)]"/>
+                </search>
+            </field>
+        </record>
     </data>
 </odoo>

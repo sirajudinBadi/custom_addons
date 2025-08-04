@@ -13,6 +13,7 @@ class Student(models.Model):
     _name = "school.student"
     _description = "Student"
     _inherit = ['soft.delete.mixin']
+    _order = "enrollment_id asc"
 
     enrollment_id = fields.Char(string="Enrollment ID", index=True, copy=False, readonly=True, default="New")
     first_name = fields.Char(string="First Name", required=True)
@@ -27,10 +28,9 @@ class Student(models.Model):
     permanent_address = fields.Text(string="Permanent Address")
     same_as_current = fields.Boolean(string="Same As Current Address", default=False)
 
-    is_active = fields.Boolean(string="Active")
-
     classroom_id = fields.Many2one("school.classroom", string="Classroom")
     is_monitor = fields.Boolean(string="Monitor", default= False)
+    active = fields.Boolean(string="Active", default=True)
 
     father_name = fields.Char(string="Father Name")
     father_occupation = fields.Char(string="Father Occupation")
@@ -50,9 +50,16 @@ class Student(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get("enrollment_id", "New"):
+        if vals.get("enrollment_id", "New") == "New":
             vals["enrollment_id"] = self.env["ir.sequence"].next_by_code("student.enrollment") or "New"
         return super(Student, self).create(vals)
+
+    def name_get(self):
+        result = []
+        for rec in self:
+            name = f"{rec.enrollment_id}-{rec.first_name} {rec.last_name}"
+            result.append((rec.id, name))
+        return result
 
 
 

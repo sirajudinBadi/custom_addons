@@ -7,6 +7,7 @@
             <field name="model">school.teacher</field>
             <field name="arch" type="xml">
                 <list>
+                    <field name="employment_id" />
                     <field name="first_name"/>
                     <field name="last_name"/>
                     <field name="join_date"/>
@@ -40,5 +41,22 @@
                 </form>
             </field>
         </record>
+
+<!--        <record id="school_teacher_search" model="ir.ui.view">-->
+<!--            <field name="name">school.teacher</field>-->
+<!--            <field name="model">school.teacher</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search>-->
+<!--                    <field string="Employment ID" name="employment_id" />-->
+<!--                    <field string="First Name" name="first_name" />-->
+<!--                    <field string="Last Name" name="last_name" />-->
+<!--                    <field string="Classroom" name="classroom_ids" />-->
+
+<!--                    <filter string="Deleted" name="is_deleted" domain="[('is_deleted', '=', True)]" context="{'include_deleted': True}" />-->
+<!--                    <filter string="Active" name="active" domain="[('is_deleted', '=', False)]"  />-->
+<!--                    <filter string="Class Teacher" name="is_class_teacher" domain="[('is_class_teacher', '=', True)]" />-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
     </data>
 </odoo>

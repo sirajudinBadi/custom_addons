@@ -7,9 +7,12 @@ class Teacher(models.Model):
     _description = "Teacher"
     _inherit = ["soft.delete.mixin",]
 
+    employment_id = fields.Char(string="Employment ID", readonly=True, index=True, copy=False, default="New")
     first_name = fields.Char(string="First Name", required=True)
     last_name = fields.Char(string="Last Name", required=True)
     join_date = fields.Date(string="Join Date", readonly=True , default=fields.Date.today)
+
+    active = fields.Boolean(string="Active", default=True)
 
     is_class_teacher= fields.Boolean(string="Class Teacher", default=True)
     # For class teacher purpose
@@ -35,3 +38,17 @@ class Teacher(models.Model):
         "subject_id",  # Target model's column (Subject)
         string="Subjects"
     )
+
+    @api.model
+    def create(self, vals):
+        if vals.get("employment_id", "New"):
+            vals["employment_id"] = self.env["ir.sequence"].next_by_code("teacher.employment") or "New"
+        return super(Teacher, self).create(vals)
+
+    def name_get(self):
+        result = []
+        for rec in self:
+            name = f"{rec.employment_id}-{rec.first_name} {rec.last_name}"
+            result.append((rec.id, name))
+        return result
+

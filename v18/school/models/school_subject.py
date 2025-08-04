@@ -6,9 +6,13 @@ class Subject(models.Model):
     _name = "school.subject"
     _description = "Subjects"
     _inherit = ["soft.delete.mixin"]
+    _order = "name asc"
+    # Here too _rec_name will not be needed bcz there is already name field in the model
 
     name = fields.Char(string="Subject Name", required=True)
     code = fields.Char(string="Subject Code", required=True)
+
+    active = fields.Boolean(string="Active", default=True)
 
     classroom_ids = fields.Many2many(
         "school.classroom",

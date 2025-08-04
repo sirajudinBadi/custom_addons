@@ -55,5 +55,19 @@
                 </form>
             </field>
         </record>
+
+<!--        <record id="school_student_search" model="ir.ui.view">-->
+<!--            <field name="name">school.student.search</field>-->
+<!--            <field name="model">school.student</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search>-->
+<!--                    <field name="enrollment_id" />-->
+<!--                    <field name="first_name" />-->
+
+<!--                    <filter string="Deleted" name="is_deleted" domain="[('is_deleted', '=', True)]" context="{'include_deleted': True}" />-->
+<!--                    <filter string="Active" name="active" domain="[('active', '=', False)]"  />-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
     </data>
 </odoo>
