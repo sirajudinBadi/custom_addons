@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+        <record id="school_schedule_form" model="ir.ui.view">
+            <field name="name">school.schedule.form</field>
+            <field name="model">school.schedule</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group string="Creation">
+                            <field name="name"/>
+                            <field name="holiday_type"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="school_schedule_calendar" model="ir.ui.view">
+            <field name="name">school.schedule.calendar</field>
+            <field name="model">school.schedule</field>
+            <field name="arch" type="xml">
+                <calendar string="School Holidays"
+                          date_start="start_date"
+                          date_stop="end_date"
+                          color="holiday_type"
+                          mode="month"
+                          event_open_popup="1"
+                          quick_add="0"
+                >
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="school_schedule_graph" model="ir.ui.view">
+            <field name="name">school.schedule.graph</field>
+            <field name="model">school.schedule</field>
+            <field name="arch" type="xml">
+                <graph string="Holiday Statistics" type="bar">
+                    <field name="holiday_type" type="row" />
+                    <field name="id" type="measure" />
+                </graph>
+            </field>
+        </record>
+    </data>
+</odoo>

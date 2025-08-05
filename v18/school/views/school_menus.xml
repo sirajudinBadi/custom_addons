@@ -64,6 +64,19 @@
                   sequence="1"
                   action="action_school_subject"
         />
+        <!--Schedule Section-->
+        <menuitem id="schedule_menu"
+                  name="Schedule"
+                  parent="school_management_root_menu"
+                  sequence="5"
+        />
+
+        <menuitem id="schedule_submenu"
+                  name="Holidays"
+                  parent="schedule_menu"
+                  action="action_school_schedule"
+                  sequence="1"
+        />
     </data>
 
 </odoo>

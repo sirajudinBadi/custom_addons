@@ -26,7 +26,7 @@
                             </group>
 
                             <group string="Representatives">
-                                <field name="cls_monitor_id"/>
+<!--                                <field name="cls_monitor_id"/>-->
                                 <field name="cls_teacher_id"/>
                             </group>
 

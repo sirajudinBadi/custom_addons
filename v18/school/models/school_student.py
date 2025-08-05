@@ -37,7 +37,7 @@ class Student(models.Model):
     same_as_current = fields.Boolean(string="Same As Current Address", default=False)
 
     classroom_id = fields.Many2one("school.classroom", string="Classroom")
-    is_monitor = fields.Boolean(string="Monitor", default=False)
+    # is_monitor = fields.Boolean(string="Monitor", default=False)
     active = fields.Boolean(string="Active", default=True)
 
     father_name = fields.Char(string="Father Name")
@@ -115,5 +115,13 @@ class Student(models.Model):
     def _compute_verified(self):
         for rec in self:
             rec.is_verified = bool(rec.file)
+
+    @api.onchange("same_as_current", "current_address")
+    def _onchange_same_as_current(self):
+        for rec in self:
+            if rec.same_as_current:
+                rec.permanent_address = rec.current_address
+            else:
+                rec.permanent_address = False
 
 

@@ -7,7 +7,8 @@
             <field name="model">school.student</field>
             <field name="arch" type="xml">
                 <list>
-                    <field name="image_128" class="small-circle-img" widget="image" options="{'preview_image': 'image_128'}" />
+                    <field name="image_128" class="small-circle-img" widget="image"
+                           options="{'preview_image': 'image_128'}"/>
                     <field name="enrollment_id"/>
                     <field name="full_name"/>
                     <field name="gender"/>
@@ -35,7 +36,7 @@
                                 <field name="gender"/>
                                 <field name="birth_date"/>
                                 <field name="classroom_id"/>
-                                <field name="is_monitor"/>
+                                <!--                                <field name="is_monitor"/>-->
                             </group>
 
                             <group string="Residential Information">
@@ -44,10 +45,11 @@
                                 <field name="permanent_address"/>
                             </group>
 
-                            <group>
-                                <field name="image_128" class="small-circle-img" widget="image" options="{'preview_image': 'image_128'}" />
-                                <field name="file" filename="file_name" />
-                                <field name="file_name" />
+                            <group string="Legal Information">
+                                <field name="image_128" class="small-circle-img" widget="image"
+                                       options="{'preview_image': 'image_128'}"/>
+                                <field name="file" filename="file_name"/>
+                                <field name="file_name"/>
                             </group>
 
                             <group string="Parent Details">
@@ -69,12 +71,51 @@
             <field name="model">school.student</field>
             <field name="arch" type="xml">
                 <search>
-                    <field name="enrollment_id" />
-                    <field name="full_name" />
+                    <field name="enrollment_id"/>
+                    <field name="full_name"/>
 
-                    <filter string="Deleted" name="is_deleted" domain="[('active', '=', False)]" context="{'include_deleted': True}" />
-                    <filter string="Active" name="active" domain="[('active', '=', True)]"  />
+                    <filter string="Deleted" name="is_deleted" domain="[('active', '=', False)]"
+                            context="{'include_deleted': True}"/>
+                    <filter string="Active" name="active" domain="[('active', '=', True)]"/>
                 </search>
+            </field>
+        </record>
+
+        <record id="school_student_kanban" model="ir.ui.view">
+            <field name="name">school.student.kanban</field>
+            <field name="model">school.student</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+<!--                    <field name="image_128"/>-->
+<!--                    <field name="enrollment_id"/>-->
+<!--                    <field name="full_name"/>-->
+<!--                    <field name="classroom_id"/>-->
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('school.student', 'image_128', record.id.value)"
+                                         class="img img-fluid rounded-circle"
+                                         alt="Student Image"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong>
+                                        <field name="full_name"/>
+                                    </strong>
+                                    <br/>
+                                    <span>Enrollment:
+                                        <field name="enrollment_id"/>
+                                    </span>
+                                    <br/>
+                                    <span>Classroom:
+                                        <field name="classroom_id"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
             </field>
         </record>
     </data>
