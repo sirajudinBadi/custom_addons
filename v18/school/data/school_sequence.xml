@@ -17,5 +17,13 @@
             <field name="padding">4</field>
             <field name="number_next">1</field>
         </record>
+
+        <record id="sequence_subject_code" model="ir.sequence">
+            <field name="name">Subject Code Sequence</field>
+            <field name="code">subject.code</field>
+            <field name="prefix"></field>
+            <field name="padding">2</field>
+            <field name="number_next">1</field>
+        </record>
     </data>
 </odoo>

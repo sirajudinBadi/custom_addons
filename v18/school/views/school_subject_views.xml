@@ -23,7 +23,6 @@
                         <group>
                             <group string="Subject Declaration">
                                 <field name="name"/>
-                                <field name="code"/>
                             </group>
 
                             <group string="Subject Specification">
@@ -36,18 +35,18 @@
             </field>
         </record>
 
-<!--        <record id="school_subject_search" model="ir.ui.view">-->
-<!--            <field name="name">school.subject.search</field>-->
-<!--            <field name="model">school.subject</field>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <search>-->
-<!--                    <field name="name" />-->
-<!--                    <field name="code" />-->
+        <record id="school_subject_search" model="ir.ui.view">
+            <field name="name">school.subject.search</field>
+            <field name="model">school.subject</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" />
+                    <field name="code" />
 
-<!--                    <filter string="Deleted" name="deleted" domain="[('is_deleted', '=', True)]" context="{'include_deleted': True}" />-->
-<!--                    <filter string="Active" name="active" domain="[('is_deleted', '=', False)]"  />-->
-<!--                </search>-->
-<!--            </field>-->
-<!--        </record>-->
+                    <filter string="Deleted" name="deleted" domain="[('active', '=', False)]" context="{'include_deleted': True}" />
+                    <filter string="Active" name="active" domain="[('active', '=', True)]"  />
+                </search>
+            </field>
+        </record>
     </data>
 </odoo>

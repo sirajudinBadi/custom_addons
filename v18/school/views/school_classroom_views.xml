@@ -49,10 +49,10 @@
 
                     <!--                    <filter string="Deleted" name="deleted" domain="[('is_deleted', '=', True)]" context="{'include_deleted': True}" />-->
                     <filter string="Deleted" name="deleted"
-                            domain="[('is_deleted', '=', True)]"
+                            domain="[('active', '=', False)]"
                             context="{'include_deleted': True}"/>
 
-                    <filter string="Active" name="active" domain="[('is_deleted', '=', False)]"/>
+                    <filter string="Active" name="active" domain="[('active', '=', True)]"/>
                 </search>
             </field>
         </record>

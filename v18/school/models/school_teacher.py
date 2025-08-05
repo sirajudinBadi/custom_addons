@@ -2,24 +2,30 @@
 
 from odoo import fields, models, api
 
+
 class Teacher(models.Model):
     _name = "school.teacher"
     _description = "Teacher"
-    _inherit = ["soft.delete.mixin",]
+    _inherit = ["soft.delete.mixin", ]
 
     employment_id = fields.Char(string="Employment ID", readonly=True, index=True, copy=False, default="New")
     first_name = fields.Char(string="First Name", required=True)
     last_name = fields.Char(string="Last Name", required=True)
-    join_date = fields.Date(string="Join Date", readonly=True , default=fields.Date.today)
+    join_date = fields.Date(string="Join Date", readonly=True, default=fields.Date.today)
+    image_128 = fields.Image(string="Profile Picture")
+    # salary = fields.Monetary(string="Salary", currency_field='currency_id')
+    # currency_id = fields.Many2one('res.currency', string="Currency")
+
+    full_name = fields.Char(string="Full Name", compute="_computed_full_name", search="_search_full_name", store=True)
 
     active = fields.Boolean(string="Active", default=True)
 
-    is_class_teacher= fields.Boolean(string="Class Teacher", default=True)
+    is_class_teacher = fields.Boolean(string="Class Teacher", default=True)
     # For class teacher purpose
     classroom_id = fields.Many2one(
         "school.classroom",
-        string="Assigned Class",
-        ondelete = "set null",
+        string="Class Teacher",
+        ondelete="set null",
     )
 
     # For teaching purpose
@@ -39,11 +45,12 @@ class Teacher(models.Model):
         string="Subjects"
     )
 
-    @api.model
-    def create(self, vals):
-        if vals.get("employment_id", "New"):
-            vals["employment_id"] = self.env["ir.sequence"].next_by_code("teacher.employment") or "New"
-        return super(Teacher, self).create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get("employment_id", "New") == "New":
+                vals["employment_id"] = self.env["ir.sequence"].next_by_code("teacher.employment") or "New"
+        return super(Teacher, self).create(vals_list)
 
     def name_get(self):
         result = []
@@ -52,3 +59,15 @@ class Teacher(models.Model):
             result.append((rec.id, name))
         return result
 
+    @api.depends("first_name", "last_name")
+    def _computed_full_name(self):
+        for rec in self:
+            rec.full_name = f"{rec.first_name} {rec.last_name}"
+
+    @api.model
+    def _search_full_name(self, operator, value):
+        return [
+            "|",
+            ("first_name", operator, value),
+            ("last_name", operator, value)
+        ]

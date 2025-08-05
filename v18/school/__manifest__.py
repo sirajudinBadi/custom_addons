@@ -24,4 +24,9 @@
 
     ],
 
+    'assets': {
+        'web.assets_backend': [
+            'school/static/src/css/styles.css',
+        ],
+    }
 }
