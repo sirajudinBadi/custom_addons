@@ -12,7 +12,8 @@
                     <field name="full_name" />
 <!--                    <field name="salary"/>-->
 <!--                    <field name="last_name"/>-->
-                    <field name="join_date"/>
+                    <field name="primary_subject"/>
+                    <field name="group" />
                     <field name="classroom_id"/>
                 </list>
             </field>
@@ -30,10 +31,10 @@
                                 <field name="image_128" widget="image" class="small-circle-img" options="{'preview_image': 'image_128'}" />
                                 <field name="first_name"/>
                                 <field name="last_name"/>
-<!--                                <field name="salary" />-->
+                                <field name="gender" />
                                 <field name="join_date"/>
-                                <field name="is_class_teacher"/>
                                 <field name="classroom_id"/>
+                                <field name="primary_subject" />
                             </group>
 
                             <group string="Specification Details">
@@ -54,12 +55,15 @@
                     <field string="Employment ID" name="employment_id" />
                     <field string="Full Name" name="full_name" />
                     <field string="Classroom" name="classroom_ids" />
+                    <field string="Group" name="group" />
 
                     <filter string="Deleted" name="is_deleted" domain="[('active', '=', False)]" context="{'include_deleted': True}" />
                     <filter string="Active" name="active" domain="[('active', '=', True)]"  />
-                    <filter string="Class Teacher" name="is_class_teacher" domain="[('is_class_teacher', '=', True)]" />
+<!--                    <filter string="Class Teacher" name="is_class_teacher" domain="[('is_class_teacher', '=', True)]" />-->
                 </search>
             </field>
         </record>
+
+
     </data>
 </odoo>

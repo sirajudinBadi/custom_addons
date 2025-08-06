@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+        <record id="school_analytics_pivot" model="ir.ui.view">
+            <field name="name">school.analytics.pivot</field>
+            <field name="model">school.teacher</field>
+            <field name="arch" type="xml">
+                <pivot string="Genderwise Teacher Distribution">
+                    <field name="gender" type="row" />
+                    <field name="subject_ids" type="col" />
+                    <field name="id" type="measure" widget="count" />
+                </pivot>
+            </field>
+        </record>
+    </data>
+</odoo>

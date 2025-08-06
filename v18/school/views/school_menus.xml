@@ -10,14 +10,14 @@
 
         <!--Student Menu Without Action-->
         <menuitem id="student_menu"
-                  name="Students"
+                  name="Student"
                   parent="school_management_root_menu"
                   sequence="1"
         />
 
         <!--Student Sub-Menu With Action (List/Form View)-->
         <menuitem id="student_submenu"
-                  name="Student Records"
+                  name="Students"
                   parent="student_menu"
                   action="action_school_student"
                   sequence="1"
@@ -25,13 +25,13 @@
 
         <!--Teacher Menu-->
         <menuitem id="teacher_menu"
-                  name="Teachers"
+                  name="Teacher"
                   parent="school_management_root_menu"
                   sequence="2"
         />
 
         <menuitem id="teacher_submenu"
-                  name="Teacher Records"
+                  name="Teachers"
                   parent="teacher_menu"
                   action="action_school_teacher"
                   sequence="1"
@@ -39,13 +39,13 @@
 
         <!--Classroom Menu-->
         <menuitem id="classroom_menu"
-                  name="Classrooms"
+                  name="Classroom"
                   parent="school_management_root_menu"
                   sequence="3"
         />
 
         <menuitem id="classroom_submenu"
-                  name="Classroom Records"
+                  name="Classrooms"
                   parent="classroom_menu"
                   action="action_school_classroom"
                   sequence="1"
@@ -53,18 +53,18 @@
 
         <!--Subject Menu-->
         <menuitem id="subject_menu"
-                  name="Subjects"
+                  name="Subject"
                   parent="school_management_root_menu"
                   sequence="4"
         />
 
         <menuitem id="subject_submenu"
-                  name="Subject Records"
+                  name="Subjects"
                   parent="subject_menu"
                   sequence="1"
                   action="action_school_subject"
         />
-        <!--Schedule Section-->
+        <!--Schedule Holiday/Event Section-->
         <menuitem id="schedule_menu"
                   name="Schedule"
                   parent="school_management_root_menu"
@@ -77,6 +77,33 @@
                   action="action_school_schedule"
                   sequence="1"
         />
+
+        <!--Analytics Menu-->
+        <menuitem id="analytics_menu"
+                  name="Analytics"
+                  parent="school_management_root_menu"
+                  sequence="6"
+        />
+        <menuitem id="analytics_submenu"
+                  name="Teachers"
+                  parent="analytics_menu"
+                  action="action_school_analytics"
+                  sequence="1"
+        />
+
+        <menuitem id="school_class_schedule_menu"
+                  name="Class Schedule"
+                  parent="school_management_root_menu"
+                  sequence="7"
+        />
+
+        <menuitem id="school_class_schedule_submenu"
+                  name="Classes"
+                  parent="school_class_schedule_menu"
+                  action="action_school_class_schedule"
+                  sequence="1"
+        />
+
     </data>
 
 </odoo>

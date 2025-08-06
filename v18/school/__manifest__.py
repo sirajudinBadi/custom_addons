@@ -22,6 +22,7 @@
         "views/school_classroom_views.xml",
         "views/school_subject_views.xml",
         "views/school_schedule_views.xml",
+        "views/school_class_schedule_views.xml",
 
     ],
 

@@ -4,6 +4,8 @@ from email.policy import default
 from odoo import fields, models, api
 from dateutil.relativedelta import  relativedelta
 
+from odoo.exceptions import ValidationError
+
 GENDER_SELECTION = [
     ("male", "Male"),
     ("female", "Female"),
@@ -45,6 +47,8 @@ class Student(models.Model):
     mother_name = fields.Char(string="Mother Name")
     mother_occupation = fields.Char(string="Mother Occupation")
 
+
+
     parent_mobile = fields.Char(string="Parent Mobile")
     parent_email = fields.Char(string="Parent Email")
 
@@ -52,7 +56,6 @@ class Student(models.Model):
     file_name = fields.Char(string="File Name", required=True)
 
     is_verified = fields.Boolean(string="Verification Status", compute = "_compute_verified", store=True)
-
 
     _sql_constraints = [
         ("unique_enrollment_id", 'unique(enrollment_id)', "Enrollment ID must be unique."),

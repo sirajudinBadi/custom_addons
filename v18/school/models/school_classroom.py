@@ -15,19 +15,11 @@ class Classroom(models.Model):
 
     active = fields.Boolean(string="Active", default=True)
 
-    # cls_monitor_id = fields.Many2one(
-    #     comodel_name="school.student",
-    #     string="Class Monitor",
-    #     ondelete="set null",
-    #     domain="[('is_monitor', '=', 'True')]",
-    #     help="Select a student as class monitor",
-    # )
 
     cls_teacher_id = fields.Many2one(
         "school.teacher",
         string="Class Teacher",
-        ondelete = "set null",
-        domain = "[('is_class_teacher', '=', 'True')]"
+        ondelete = "set null"
     )
 
     teacher_ids = fields.Many2many(
@@ -48,5 +40,5 @@ class Classroom(models.Model):
 
     _sql_constraints = [
         ("unique_name", 'unique(name)', "Class Name must be unique."),
-        ("unique_class_teacher", 'unique(cls_teacher_id)', "Only on class teacher per class"),
+        ("unique_class_teacher", 'unique(cls_teacher_id)', "Only one class teacher per class"),
     ]

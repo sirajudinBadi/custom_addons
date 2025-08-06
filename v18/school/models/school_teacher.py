@@ -2,25 +2,40 @@
 
 from odoo import fields, models, api
 
+GROUP_SELECTION = [
+    ("primary", "Primary"),
+    ("secondary", "Secondary")
+]
+
+GENDER_SELECTION = [
+    ("male", "Male"),
+    ("female", "Female"),
+    ("other", "Other")
+]
+
 
 class Teacher(models.Model):
     _name = "school.teacher"
     _description = "Teacher"
     _inherit = ["soft.delete.mixin", ]
+    _rec_name = 'full_name'
 
     employment_id = fields.Char(string="Employment ID", readonly=True, index=True, copy=False, default="New")
     first_name = fields.Char(string="First Name", required=True)
     last_name = fields.Char(string="Last Name", required=True)
+    gender = fields.Selection(selection=GENDER_SELECTION, string="Gender")
     join_date = fields.Date(string="Join Date", readonly=True, default=fields.Date.today)
     image_128 = fields.Image(string="Profile Picture")
-    # salary = fields.Monetary(string="Salary", currency_field='currency_id')
-    # currency_id = fields.Many2one('res.currency', string="Currency")
+
+    schedule_ids = fields.Many2one("school.teacher.schedule", string="Schedule")
 
     full_name = fields.Char(string="Full Name", compute="_computed_full_name", search="_search_full_name", store=True)
 
     active = fields.Boolean(string="Active", default=True)
 
-    is_class_teacher = fields.Boolean(string="Class Teacher", default=True)
+    group = fields.Selection(selection = GROUP_SELECTION,default= "primary", string="Group", compute="_compute_group", store=True)
+
+    # is_class_teacher = fields.Boolean(string="Class Teacher", default=True)
     # For class teacher purpose
     classroom_id = fields.Many2one(
         "school.classroom",
@@ -35,6 +50,12 @@ class Teacher(models.Model):
         "teacher_id",
         "classroom_id",
         string="Classrooms"
+    )
+
+    primary_subject = fields.Many2one(
+        "school.subject",
+        string = "Subject",
+        ondeleted="set null",
     )
 
     subject_ids = fields.Many2many(
@@ -71,3 +92,16 @@ class Teacher(models.Model):
             ("first_name", operator, value),
             ("last_name", operator, value)
         ]
+
+    @api.depends("classroom_ids")
+    def _compute_group(self):
+        for rec in self:
+            rec.group = "secondary"
+            for cls in rec.classroom_ids:
+                if cls.name:
+                    prefix = cls.name.split("-")[0]
+                    if prefix.isdigit() and 1 <= int(prefix) <= 4:
+                        rec.group = "primary"
+                        break
+
+
