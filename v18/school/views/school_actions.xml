@@ -36,7 +36,7 @@
         <record id="action_school_schedule" model="ir.actions.act_window">
             <field name="name">Schedule</field>
             <field name="res_model">school.schedule</field>
-            <field name="view_mode">calendar,graph,form</field>
+            <field name="view_mode">graph,calendar,form</field>
         </record>
     </data>
 </odoo>

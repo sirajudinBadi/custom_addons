@@ -26,11 +26,9 @@
                 <calendar string="School Holidays"
                           date_start="start_date"
                           date_stop="end_date"
-                          color="holiday_type"
+                          color="color_index"
                           mode="month"
-                          event_open_popup="1"
-                          quick_add="0"
-                >
+                          >
                     <field name="name"/>
                 </calendar>
             </field>
@@ -40,9 +38,9 @@
             <field name="name">school.schedule.graph</field>
             <field name="model">school.schedule</field>
             <field name="arch" type="xml">
-                <graph string="Holiday Statistics" type="bar">
+                <graph string="Holiday Statistics" sample="1" order="DESC" type="bar">
                     <field name="holiday_type" type="row" />
-                    <field name="id" type="measure" />
+                    <field name="id" type="measure" widget="count" />
                 </graph>
             </field>
         </record>
