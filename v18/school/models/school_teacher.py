@@ -27,7 +27,7 @@ class Teacher(models.Model):
     join_date = fields.Date(string="Join Date", readonly=True, default=fields.Date.today)
     image_128 = fields.Image(string="Profile Picture")
 
-    schedule_ids = fields.Many2one("school.teacher.schedule", string="Schedule")
+    schedule_ids = fields.Many2one("school.class.schedule", string="Schedule")
 
     full_name = fields.Char(string="Full Name", compute="_computed_full_name", search="_search_full_name", store=True)
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+        <record id="school_teacher_profile_list" model="ir.ui.view">
+            <field name="name">school.teacher.profile.list</field>
+            <field name="model">school.teacher.profile</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="teacher_id"/>
+                    <field name="mobile"/>
+                    <field name="email"/>
+                    <field name="password"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="school_teacher_profile_form" model="ir.ui.view">
+            <field name="name">school.teacher.profile.form</field>
+            <field name="model">school.teacher.profile</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group string="Credentials">
+                            <field name="teacher_id"/>
+                            <field name="mobile"/>
+                            <field name="email"/>
+                            <field name="password"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

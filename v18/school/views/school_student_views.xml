@@ -14,7 +14,7 @@
                     <field name="gender"/>
                     <field name="age"/>
                     <field name="classroom_id"/>
-                    <field name="admission_date"/>
+                    <field name="health_score"/>
                 </list>
             </field>
         </record>
@@ -45,7 +45,7 @@
                                 <field name="permanent_address"/>
                             </group>
 
-                            <group string="Legal Information">
+                            <group name="file_group" string="Legal Information">
                                 <field name="image_128" class="small-circle-img" widget="image"
                                        options="{'preview_image': 'image_128'}"/>
                                 <field name="file" filename="file_name"/>
@@ -60,6 +60,11 @@
                                 <field name="parent_email"/>
                                 <field name="parent_mobile"/>
                             </group>
+
+<!--                            <group>-->
+<!--                                <field name="health_score" />-->
+<!--                                <field name="is_allergen" />-->
+<!--                            </group>-->
                         </group>
                     </sheet>
                 </form>

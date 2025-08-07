@@ -10,7 +10,7 @@
     "license": "LGPL-3",
     "application": True,
     "installable": True,
-    "sequence": 1,
+    "sequence": 2,
 
     "data": [
         "security/ir.model.access.csv",
@@ -23,6 +23,8 @@
         "views/school_subject_views.xml",
         "views/school_schedule_views.xml",
         "views/school_class_schedule_views.xml",
+        "views/school_teacher_profile_views.xml",
+        "views/school_student_health_inherit_views.xml",
 
     ],
 
