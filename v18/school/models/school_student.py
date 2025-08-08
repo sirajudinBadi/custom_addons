@@ -127,3 +127,19 @@ class Student(models.Model):
                 rec.permanent_address = False
 
 
+    @api.model
+    def name_search(self, name='', args=None, operator='ilike', limit=100):
+        args = list(args or [])
+        domain = []
+
+        if name:
+            domain = [
+                "|", "|","|",
+                ("first_name", operator, name),
+                ("last_name", operator, name),
+                ("enrollment_id", operator, name),
+                ("email", operator, name),
+            ]
+        full_domain = domain + args
+        records = self._search(full_domain, limit=limit)
+        return records.name_get()
