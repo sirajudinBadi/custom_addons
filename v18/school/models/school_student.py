@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-from email.policy import default
 
 from odoo import fields, models, api
-from dateutil.relativedelta import  relativedelta
+from dateutil.relativedelta import relativedelta
 
 from odoo.exceptions import ValidationError
 
