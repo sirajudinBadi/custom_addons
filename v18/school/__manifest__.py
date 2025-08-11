@@ -27,6 +27,7 @@
         "views/school_teacher_profile_views.xml",
         "views/school_student_health_inherit_views.xml",
         "wizard/student_complaint_view.xml",
+        "data/school_cron_jobs.xml",
         # "data/school_student_complaint_email_template.xml"
 
     ],

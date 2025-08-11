@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <record id="school.permanent_delete_cron_job" model="ir.cron">
+            <field name="name">Permanently Delete Archived Students</field>
+            <field name="model_id" ref="model_school_student" />
+            <field name="state">code</field>
+            <field name="code">model.school_student.permanently_delete_record()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="active">True</field>
+        </record>
+    </data>
+</odoo>

@@ -143,3 +143,9 @@ class Student(models.Model):
             "url" : "https://www.google.com",
             "target" : "new"
         }
+
+    @api.model
+    def permanently_delete_record(self):
+        soft_deleted_records = self.search([("active","=", False)])
+        if soft_deleted_records:
+            soft_deleted_records.unlink()
