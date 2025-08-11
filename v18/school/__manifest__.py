@@ -13,6 +13,7 @@
     "sequence": 2,
 
     "data": [
+        # "security/school_security.xml",
         "security/ir.model.access.csv",
         "data/school_sequence.xml",
         "views/school_actions.xml",
@@ -25,6 +26,7 @@
         "views/school_class_schedule_views.xml",
         "views/school_teacher_profile_views.xml",
         "views/school_student_health_inherit_views.xml",
+        "wizard/student_complaint_view.xml"
 
     ],
     'images': ['static/description/icon.png'],

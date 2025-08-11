@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 from dateutil.relativedelta import relativedelta
 
 from odoo.exceptions import ValidationError
@@ -17,6 +17,7 @@ class Student(models.Model):
     _description = "Student"
     _inherit = ['soft.delete.mixin']
     _order = "enrollment_id asc"
+    _rec_name = "full_name"
 
     enrollment_id = fields.Char(string="Enrollment ID", index=True, copy=False, readonly=True, default="New")
     image_128 = fields.Image(string="Student Image")
@@ -127,19 +128,11 @@ class Student(models.Model):
                 rec.permanent_address = False
 
 
-    @api.model
-    def name_search(self, name='', args=None, operator='ilike', limit=100):
-        args = list(args or [])
-        domain = []
-
-        if name:
-            domain = [
-                "|", "|","|",
-                ("first_name", operator, name),
-                ("last_name", operator, name),
-                ("enrollment_id", operator, name),
-                ("email", operator, name),
-            ]
-        full_domain = domain + args
-        records = self._search(full_domain, limit=limit)
-        return records.name_get()
+    def action_student_complaint(self):
+        return {
+            "name" : _('Complaint'),
+            "view_mode" : "form",
+            "res_model" : "school.student.complaint",
+            "type" : "ir.actions.act_window",
+            "target" : "new"
+        }

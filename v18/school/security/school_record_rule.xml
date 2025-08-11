@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="rule_teacher_own_class" model="ir.rule">
+            <field name="name">Teacher Specific Students</field>
+            <field name="model_id" ref="model_school_student" />
+            <field name="domain_force">[("class_id.teacher_id", '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('school.group_school_teacher'))]" />
+        </record>
+        <record id="rule_student_self" model="ir.rule">
+            <field name="name">Student Self</field>
+            <field name="model_id" ref="model_school_student" />
+            <field name="domain_force">[("user_id", '=',user.id)]</field>
+            <field name="groups" eval="[(4,ref('school.group_school_student'))]" />
+        </record>
+    </data>
+</odoo>

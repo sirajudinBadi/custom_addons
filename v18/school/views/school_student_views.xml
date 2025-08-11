@@ -6,6 +6,7 @@
             <field name="name">school.student.list</field>
             <field name="model">school.student</field>
             <field name="arch" type="xml">
+
                 <list>
                     <field name="image_128" class="small-circle-img" widget="image"
                            options="{'preview_image': 'image_128'}"/>
@@ -25,7 +26,15 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form>
+                     <header>
+                            <button name="action_student_complaint"
+                                    string="New Complaint"
+                                    type="object"
+                                    class="oe_highlight"
+                            />
+                        </header>
                     <sheet>
+
                         <group>
                             <group string="Personal Information">
 
@@ -61,10 +70,10 @@
                                 <field name="parent_mobile"/>
                             </group>
 
-<!--                            <group>-->
-<!--                                <field name="health_score" />-->
-<!--                                <field name="is_allergen" />-->
-<!--                            </group>-->
+                            <!--                            <group>-->
+                            <!--                                <field name="health_score" />-->
+                            <!--                                <field name="is_allergen" />-->
+                            <!--                            </group>-->
                         </group>
                     </sheet>
                 </form>
@@ -91,10 +100,10 @@
             <field name="model">school.student</field>
             <field name="arch" type="xml">
                 <kanban class="o_kanban_mobile">
-<!--                    <field name="image_128"/>-->
-<!--                    <field name="enrollment_id"/>-->
-<!--                    <field name="full_name"/>-->
-<!--                    <field name="classroom_id"/>-->
+                    <!--                    <field name="image_128"/>-->
+                    <!--                    <field name="enrollment_id"/>-->
+                    <!--                    <field name="full_name"/>-->
+                    <!--                    <field name="classroom_id"/>-->
 
                     <templates>
                         <t t-name="kanban-box">

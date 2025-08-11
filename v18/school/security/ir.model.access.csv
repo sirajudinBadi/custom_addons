@@ -6,3 +6,4 @@ access_school_subject,access.school.subject,model_school_subject,,1,1,1,1
 access_school_schedule,access.school.schedule,model_school_schedule,,1,1,1,1
 access_school_class_schedule,access.school.class.schedule,model_school_class_schedule,,1,1,1,1
 access_school_teacher_profile,access.school.teacher.profile,model_school_teacher_profile,,1,1,1,1
+access_school_student_complaint, access.school.student.complaint,model_school_student_complaint,,1,1,1,1

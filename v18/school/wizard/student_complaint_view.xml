@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="school_student_complaint_view_form" model="ir.ui.view">
+            <field name="name">school.student.complaint.view.form</field>
+            <field name="model">school.student.complaint</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="student_id" />
+                            <field name="complaint"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

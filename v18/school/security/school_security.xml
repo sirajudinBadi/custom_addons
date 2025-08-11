@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="module_category_school_management" model="ir.module.category">
+            <field name="name">School Management</field>
+            <field name="description">School Management groups for security and access.</field>
+        </record>
+
+        <record id="group_school_admin" model="ir.groups">
+            <field name="name">School Admin</field>
+            <field name="category_id" ref="module_category_school_management" />
+        </record>
+        
+        <record id="group_school_teacher" model="ir.groups">
+            <field name="name">School Teacher</field>
+            <field name="category_id" ref="module_category_school_management" />
+        </record>
+        
+        <record id="group_school_student" model="ir.groups">
+            <field name="name">School Student</field>
+            <field name="category_id" ref="module_category_school_management" />
+        </record>
+    </data>
+</odoo>
