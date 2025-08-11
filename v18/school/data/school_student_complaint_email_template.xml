@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="student_complaint_email_template" model="mail.template">
+            <field name="name">Student Complaint Notification</field>
+            <field name="model_id" ref="school.model_school_student_complaint"/>
+            <field name="subject">New Complaint from ${object.student_id.full_name}</field>
+            <field name="email_from">${(user.email_formatted or 'no-reply@example.com')|safe}</field>
+            <field name="email_to">admin@example.com</field>
+            <field name="body_html">
+                <![CDATA[
+            <p>Hello Admin,</p>
+            <p>A new complaint has been submitted by <strong>${object.student_id.full_name}</strong>.</p>
+            <p><b>Complaint Subject:</b> ${object.subject}</p>
+            <p><b>Details:</b></p>
+            <p>${object.description}</p>
+            <p>Regards,<br/>School Management System</p>
+            ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

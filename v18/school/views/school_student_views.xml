@@ -26,13 +26,18 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form>
-                     <header>
-                            <button name="action_student_complaint"
-                                    string="New Complaint"
-                                    type="object"
-                                    class="oe_highlight"
-                            />
-                        </header>
+                    <header>
+                        <button name="action_student_complaint"
+                                string="New Complaint"
+                                type="object"
+                                class="oe_highlight"
+                        />
+                        <button name="action_open_google"
+                                string="Google"
+                                type="object"
+                                class="btn-primary"
+                        />
+                    </header>
                     <sheet>
 
                         <group>

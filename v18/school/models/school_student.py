@@ -136,3 +136,10 @@ class Student(models.Model):
             "type" : "ir.actions.act_window",
             "target" : "new"
         }
+
+    def action_open_google(self):
+        return {
+            "type" : "ir.actions.act_url",
+            "url" : "https://www.google.com",
+            "target" : "new"
+        }
