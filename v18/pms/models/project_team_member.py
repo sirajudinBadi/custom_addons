@@ -19,18 +19,13 @@ class ExtendedUsers(models.Model):
     _rec_name = "display_name"
 
     employee_id = fields.One2many("hr.employee", "user_id")
-    # employee_detail_id = fields.Many2one("hr.employee")
-    #
-    # emp_name = fields.Char(related="employee_detail_id.name")
-    # emp_email= fields.Char(related="employee_detail_id.work_email")
-    #
-    # display_name = fields.Char(string="Display Detail", compute="_compute_display_name", store=True)
-
     @api.depends("name", "login")
     def _compute_display_name(self):
         for rec in self:
             if rec.name and rec.login:
                 rec.display_name = f"{rec.name} / {rec.login}"
+            else:
+                rec.display_name = rec.name
 
 class ProjectTeamMember(models.Model):
     _name = "project.team.member"

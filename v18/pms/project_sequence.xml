@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <record id="pms.sequence_team_id" model="ir.sequence">
+            <field></field>
+            <field></field>
+            <field></field>
+            <field></field>
+            <field></field>
+        </record>
+    </data>
+</odoo>
