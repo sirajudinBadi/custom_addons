@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <record id="sequence_library_book_category" model="ir.sequence">
+            <field name="name">Library Book Category ID</field>
+            <field name="code">library.book.category_id</field>
+            <field name="prefix">CAT/%(year)s</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+        </record>
+    </data>
+</odoo>

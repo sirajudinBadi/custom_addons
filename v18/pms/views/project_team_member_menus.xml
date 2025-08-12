@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <menuitem id="project_root_menu"
+                  name="Project"
+                  sequence="1"
+        />
+
+        <menuitem id="project_team_member_menu"
+                  name="Team Members"
+                  parent="project_root_menu"
+                  sequence="1"
+        />
+        <menuitem id="project_team_member_menu"
+                  name="Members"
+                  parent="project_root_menu"
+                  action="pms.action_project_team_member"
+                  sequence="1"
+        />
+
+    </data>
+</odoo>

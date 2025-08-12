@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <record id="demo_city_ahmedabad" model="res.state.city">
+            <field name="name">Ahmedabad West</field>
+            <field name="rto_code">GJ01</field>
+        </record>
+        <record id="demo_city_gandhinagar" model="res.state.city">
+            <field name="name">Gandhinagar</field>
+            <field name="rto_code">GJ18</field>
+        </record>
+        <record id="demo_city_surat" model="res.state.city">
+            <field name="name">Surat</field>
+            <field name="rto_code">GJ05</field>
+        </record>
+        <record id="demo_city_vadodara" model="res.state.city">
+            <field name="name">Vadodara</field>
+            <field name="rto_code">GJ06</field>
+        </record>
+        <record id="demo_city_rajkot" model="res.state.city">
+            <field name="name">Rajkot</field>
+            <field name="rto_code">GJ03</field>
+        </record>
+        <record id="demo_city_amreli" model="res.state.city">
+            <field name="name">Amreli</field>
+            <field name="rto_code">GJ14</field>
+        </record>
+        <record id="demo_city_morbi" model="res.state.city">
+            <field name="name">Morbi</field>
+            <field name="rto_code">GJ36</field>
+        </record>
+        <record id="demo_city_bhavnagar" model="res.state.city">
+            <field name="name">Bhavnagar</field>
+            <field name="rto_code">GJ04</field>
+        </record>
+        <record id="demo_city_junagadh" model="res.state.city">
+            <field name="name">Junagadh</field>
+            <field name="rto_code">GJ11</field>
+        </record>
+        <record id="demo_city_sabarkantha" model="res.state.city">
+            <field name="name">Sabarkantha</field>
+            <field name="rto_code">GJ09</field>
+        </record>
+    </data>
+</odoo>
