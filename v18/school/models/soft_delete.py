@@ -40,7 +40,7 @@ class SoftDeleteMixin(models.AbstractModel):
 
         print("SEARCH DOMAIN (after):", domain)
 
-        return super().search(domain, offset=offset, limit=limit, order=order, count=count)
+        return super().search(domain, offset=offset, limit=limit, order=order)
 
     def hard_unlink(self):
         return super().unlink()
