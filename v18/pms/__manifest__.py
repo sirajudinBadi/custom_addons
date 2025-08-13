@@ -6,14 +6,16 @@
     "license": "LGPL-3",
     "author": "John Doe",
     "website": "www.example.com",
-    "depends": ["base", "account", "hr"],
+    "depends": ["base", "account", "hr", "mail",],
     "application": True,
     "installable": True,
     "data": [
         "security/ir.model.access.csv",
+        "data/project_sequence.xml",
         "views/project_actions.xml",
-        "views/project_team_member_menus.xml",
-        "views/project_team_member_views.xml"
+        "views/project_menus.xml",
+        "views/project_team_member_views.xml",
+        "views/project_team_views.xml",
     ],
     "demo" : [
         "demo/project_city_demo_data.xml"

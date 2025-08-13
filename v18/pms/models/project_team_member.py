@@ -57,6 +57,14 @@ class ProjectTeamMember(models.Model):
     active = fields.Boolean(string="Active Status", default=True)
     timesheet_ids = fields.One2many("account.analytic.line","member_id", string="Timesheet")
 
+    team_ids = fields.Many2many(
+        "project.team",
+        "team_and_member_rel",
+        "member_id",
+        "team_id",
+        string="Teams"
+    )
+
     _sql_constraints = [
         ("unique_mobile", "unique(mobile)", "Mobile number must be unique."),
     ]
@@ -77,4 +85,5 @@ class ProjectTeamMember(models.Model):
 
     def copy(self):
         raise ValidationError("Can not Duplicate record.")
+
 

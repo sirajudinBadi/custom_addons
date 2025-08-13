@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <record id="pms.project_team_list_view" model="ir.ui.view">
+            <field name="name">pms.project.team.list.view</field>
+            <field name="model">project.team</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="sequence"/>
+                    <field name="name"/>
+                    <field name="team_leader"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="pms.project_team_activity_view" model="ir.ui.view">
+            <field name="name">pms.project.team.activity.view</field>
+            <field name="model">project.team</field>
+            <field name="arch" type="xml">
+                <activity string="Teams">
+                        <templates>
+                            <div t-name="activity-box">
+                                <div>
+<!--                                    <field name="name"/>-->
+                                    <field name="team_leader"/>
+                                </div>
+                            </div>
+                        </templates>
+                    </activity>
+            </field>
+        </record>
+
+        <record id="pms.project_team_form_view" model="ir.ui.view">
+            <field name="name">pms.project.team.form.view</field>
+            <field name="model">project.team</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group string="Team Information">
+                                <field name="name"/>
+                                <field name="team_leader"/>
+                                <field name="team_member_ids"/>
+                            </group>
+                        </group>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_ids" widget="mail_thread"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="pms.project_team_kanban_view" model="ir.ui.view">
+            <field name="name">pms.project.team.kanban.view</field>
+            <field name="model">project.team</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="team_leader" class="o_kanban_view">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="d-flex align-items-center gap-3 oe_kanban_global_click o_kanban_record">
+                                <div class="o_kanban_details">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"/>
+                                    </strong>
+                                    <div>
+                                        <field name="sequence"/>
+                                    </div>
+                                    <div class="">
+                                        <field name="team_leader"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+    </data>
+</odoo>

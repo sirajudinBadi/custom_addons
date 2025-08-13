@@ -47,6 +47,7 @@
                                 <field name="user_image" widget="image" class="small-circle-img" />
                                 <field name="bio_data" />
                                 <field name="timesheet_ids" />
+                                <field name="team_ids" />
                             </group>
                         </group>
                     </sheet>

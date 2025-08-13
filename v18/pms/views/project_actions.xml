@@ -2,10 +2,16 @@
 
 <odoo>
     <data>
-        <record id="action_project_team_member" model="ir.actions.act_window">
+        <record id="pms.action_project_team_member" model="ir.actions.act_window">
             <field name="name">Team Members</field>
             <field name="res_model">project.team.member</field>
             <field name="view_mode">list,form,kanban</field>
+        </record>
+
+        <record id="pms.action_project_team" model="ir.actions.act_window">
+            <field name="name">Teams</field>
+            <field name="res_model">project.team</field>
+            <field name="view_mode">list,form,activity,kanban</field>
         </record>
     </data>
 </odoo>

@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_project_team_member,access.project.team.member,model_project_team_member,,1,1,1,1
 access_project_res_state_city,access.project.res.state.city,model_res_state_city,,1,1,1,1
+access_project_team,access.project.team,model_project_team,,1,1,1,1
