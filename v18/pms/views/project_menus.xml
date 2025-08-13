@@ -12,10 +12,23 @@
                   parent="project_root_menu"
                   sequence="1"
         />
-        <menuitem id="project_team_member_menu"
+        <menuitem id="project_team_member_submenu"
                   name="Members"
-                  parent="project_root_menu"
+                  parent="project_team_member_menu"
                   action="pms.action_project_team_member"
+                  sequence="1"
+        />
+
+        <menuitem id="project_team_menu"
+                  name="Team"
+                  parent="project_root_menu"
+                  sequence="2"
+        />
+
+        <menuitem id="project_team_submenu"
+                  name="Teams"
+                  parent="project_team_menu"
+                  action="pms.action_project_team"
                   sequence="1"
         />
 
