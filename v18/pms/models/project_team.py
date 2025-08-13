@@ -27,3 +27,14 @@ class ProjectTeam(models.Model):
             seq_prefix = self.env["ir.sequence"].next_by_code("project.sequence") or "New"
             vals["sequence"] = f"{seq_prefix}/{vals.get('name')}/{fields.Date.today()}"
         return super(ProjectTeam, self).create(vals)
+
+    def action_team_members(self, *args):
+        # self.ensure_one()
+        return {
+            "name" : "Team Members",
+            "type" : "ir.actions.act_window",
+            "res_model" : "project.team.member",
+            "view_mode" : "list",
+            "domain" : [("team_ids", 'in',self.id)],
+            "target" : "new",
+        }

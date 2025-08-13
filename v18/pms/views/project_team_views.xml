@@ -36,6 +36,13 @@
             <field name="model">project.team</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="action_team_members"
+                                string="Members"
+                                type="object"
+                                class="oe_highlight"
+                        />
+                    </header>
                     <sheet>
                         <group>
                             <group string="Team Information">
