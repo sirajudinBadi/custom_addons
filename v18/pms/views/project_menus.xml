@@ -38,7 +38,7 @@
                   name="Add Team"
                   parent="project.menu_project_config"
                   action="pms.action_project_team_form"
-                  groups="project.group_project_manager base.group_system"
+                  groups="project.group_project_manager"
 
         />
 
