@@ -1,6 +1,8 @@
 # -*-coding:utf-8-*-
 
 from odoo import models, fields, api
+from odoo.api import ValuesType, Self
+from odoo.exceptions import ValidationError, UserError
 
 
 class ProjectExtend(models.Model):
@@ -21,3 +23,26 @@ class ProjectExtend(models.Model):
                 rec.member_ids = rec.team_id.team_member_ids
             else:
                 rec.member_ids = []
+
+
+class ProjectTaskExtend(models.Model):
+    _inherit = "project.task"
+
+    @api.model
+    def create(self, vals):
+        if vals.get("date_assign") is None:
+            vals["date_assign"] = fields.Datetime.now()
+        return super(ProjectTaskExtend, self).create(vals)
+
+    def write(self, vals):
+        if vals["date_assign"] and vals["date_assign"] < fields.Datetime.now():
+            raise ValidationError("Invalid date assigned.")
+        return super(ProjectTaskExtend, self).write(vals)
+
+    def unlink(self):
+        for rec in self:
+            stage = self.env.ref("project.project_stage_1")
+            if rec.stage_id == stage:
+                raise UserError("Can not delete IN PROGRESS task.")
+        return super(ProjectTaskExtend, self).unlink()
+
