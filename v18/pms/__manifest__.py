@@ -6,7 +6,7 @@
     "license": "LGPL-3",
     "author": "John Doe",
     "website": "www.example.com",
-    "depends": ["base", "account", "hr", "mail",],
+    "depends": ["base", "account", "hr", "mail","project"],
     "application": True,
     "installable": True,
     "data": [

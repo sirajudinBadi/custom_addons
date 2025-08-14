@@ -3,7 +3,7 @@
 <odoo>
     <data>
         <menuitem id="project_root_menu"
-                  name="Project"
+                  name="Projects"
                   sequence="1"
         />
 
@@ -30,6 +30,12 @@
                   parent="project_team_menu"
                   action="pms.action_project_team"
                   sequence="1"
+        />
+
+        <menuitem id="project_config_add_team_menu"
+                  name="Add Team"
+                  parent="project.menu_project_config"
+                  action="pms.action_project_team_form"
         />
 
     </data>
