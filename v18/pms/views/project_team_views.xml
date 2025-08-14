@@ -19,15 +19,15 @@
             <field name="model">project.team</field>
             <field name="arch" type="xml">
                 <activity string="Teams">
-                        <templates>
-                            <div t-name="activity-box">
-                                <div>
-<!--                                    <field name="name"/>-->
-                                    <field name="team_leader"/>
-                                </div>
+                    <templates>
+                        <div t-name="activity-box">
+                            <div>
+                                <!--                                    <field name="name"/>-->
+                                <field name="team_leader"/>
                             </div>
-                        </templates>
-                    </activity>
+                        </div>
+                    </templates>
+                </activity>
             </field>
         </record>
 
@@ -48,8 +48,15 @@
                             <group string="Team Information">
                                 <field name="name"/>
                                 <field name="team_leader"/>
-                                <field name="team_member_ids"/>
                             </group>
+                            <notebook>
+                                <page string="Members">
+                                    <field name="team_member_ids" />
+                                </page>
+                                <page string="Projects">
+                                    <field name="project_ids"/>
+                                </page>
+                            </notebook>
                         </group>
                     </sheet>
 

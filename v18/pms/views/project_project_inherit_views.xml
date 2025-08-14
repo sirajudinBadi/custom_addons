@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+<!--        <record id="pms.project_inherit_team_field_form_view" model="ir.ui.view">-->
+<!--            <field name="name">pms.project.inherit.team.field.form.view</field>-->
+<!--            <field name="model">project.project</field>-->
+<!--            <field name="inherit_id" ref="project.edit_project"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                -->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="pms.project_inherit_team_field_form_view" model="ir.ui.view">
+            <field name="name">pms.project.inherit.team.field.form.view</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date']" position="after">
+                    <field name="team_ids" widget="many2many_tags"/>
+                </xpath>
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="Teams">
+                        <field name="team_ids" widget="many2many_kanban" context="{'create': True}">
+                            <kanban>
+                                <field name="name"/>
+                                <field name="team_leader"/>
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <div class="oe_kanban_global_click">
+                                            <strong>Team :
+                                                <field name="name"/>
+                                            </strong>
+                                            <div>Leader:
+                                                <field name="team_leader"/>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </templates>
+                            </kanban>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

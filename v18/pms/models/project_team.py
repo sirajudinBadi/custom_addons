@@ -21,6 +21,14 @@ class ProjectTeam(models.Model):
     active = fields.Boolean(string="Status", default=True)
     sequence = fields.Char(string="Sequence", readonly=True, copy=False, default="New")
 
+    project_ids = fields.Many2many(
+        "project.project",
+        "project_team_rel",
+        "team_id",
+        "project_id",
+        "Projects"
+    )
+
     @api.model
     def create(self, vals):
         if vals.get("sequence", "New") == "New":

@@ -20,29 +20,26 @@
         />
 
         <menuitem id="project_team_menu"
-                  name="Project Configuration"
+                  name="Team"
                   parent="project_root_menu"
                   sequence="2"
         />
 
         <menuitem id="project_team_create_menu"
-                  name="Create Team"
+                  name="Teams"
                   parent="project_team_menu"
-                  action="pms.action_create_team"
+                  action="pms.action_project_team"
                   sequence="1"
         />
 
-        <menuitem id="project_team_submenu"
-                  name="View Teams"
-                  parent="project_team_menu"
-                  action="pms.action_project_team"
-                  sequence="2"
-        />
+
 
         <menuitem id="project_config_add_team_menu"
                   name="Add Team"
                   parent="project.menu_project_config"
                   action="pms.action_project_team_form"
+                  groups="project.group_project_manager base.group_system"
+
         />
 
     </data>
