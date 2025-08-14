@@ -16,6 +16,7 @@
         "views/project_menus.xml",
         "views/project_team_member_views.xml",
         "views/project_team_views.xml",
+        "wizard/multi_team_member_views.xml",
     ],
     "demo" : [
         "demo/project_city_demo_data.xml"

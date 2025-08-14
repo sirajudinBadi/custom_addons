@@ -38,3 +38,4 @@ class ProjectTeam(models.Model):
             "domain" : [("team_ids", 'in',self.id)],
             "target" : "new",
         }
+

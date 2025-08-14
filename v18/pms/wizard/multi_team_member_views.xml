@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <record id="pms.multi_team_member_wizard_form_view" model="ir.ui.view">
+            <field name="name">pms.multi.team.member.wizard.form.view</field>
+            <field name="model">multi.team.member</field>
+            <field name="arch" type="xml">
+                <form string="Add Member to Teams">
+                    <sheet>
+                        <group>
+                            <field name="member_id"/>
+                        </group>
+                        <footer>
+                            <button string="Add" type="object" name="action_add_member_to_multi_teams" class="btn-primary"/>
+                            <button string="Cancel" class="btn-secondary" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
