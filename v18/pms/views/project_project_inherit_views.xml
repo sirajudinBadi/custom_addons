@@ -17,23 +17,26 @@
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='date']" position="after">
-                    <field name="team_ids" widget="many2many_tags"/>
+                    <field name="team_id"/>
                 </xpath>
 
                 <xpath expr="//notebook" position="inside">
-                    <page string="Teams">
-                        <field name="team_ids" widget="many2many_kanban" context="{'create': True}">
+                    <page string="Members">
+                        <field name="member_ids" widget="many2many_kanban">
                             <kanban>
                                 <field name="name"/>
-                                <field name="team_leader"/>
+                                <field name="gender"/>
+                                <field name="user_image" widget="image" />
                                 <templates>
                                     <t t-name="kanban-box">
                                         <div class="oe_kanban_global_click">
-                                            <strong>Team :
+                                            <img t-att-src="kanban_image('project.team.member', 'user_image', record.id.value)"
+                                                 class="small-circle-img oe_avatar" alt="Member"/>
+                                            <strong>
                                                 <field name="name"/>
                                             </strong>
-                                            <div>Leader:
-                                                <field name="team_leader"/>
+                                            <div>
+                                                <field name="gender"/>
                                             </div>
                                         </div>
                                     </t>

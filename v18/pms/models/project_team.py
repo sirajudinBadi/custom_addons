@@ -29,6 +29,8 @@ class ProjectTeam(models.Model):
         "Projects"
     )
 
+    project_id = fields.Many2one("project.project", "Project")
+
     @api.model
     def create(self, vals):
         if vals.get("sequence", "New") == "New":
