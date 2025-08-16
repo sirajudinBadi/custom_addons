@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+        <record id="pms.project_task_inherit_search_view" model="ir.ui.view">
+            <field name="name">pms.project.task.inherit.search.view</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_search_form_base"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <filter string="New Tasks" name="working_hours_open" domain="[('working_hours_open','&lt;=',5)]"/>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

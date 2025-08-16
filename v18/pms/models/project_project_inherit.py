@@ -35,8 +35,10 @@ class ProjectTaskExtend(models.Model):
         return super(ProjectTaskExtend, self).create(vals)
 
     def write(self, vals):
-        if vals["date_assign"] and vals["date_assign"] < fields.Datetime.now():
-            raise ValidationError("Invalid date assigned.")
+        # Only validate if date_assign is explicitly being updated
+        if "date_assign" in vals and vals["date_assign"]:
+            if vals["date_assign"] < fields.Datetime.now():
+                raise ValidationError("Invalid date assigned.")
         return super(ProjectTaskExtend, self).write(vals)
 
     def unlink(self):
@@ -45,4 +47,9 @@ class ProjectTaskExtend(models.Model):
             if rec.stage_id == stage:
                 raise UserError("Can not delete IN PROGRESS task.")
         return super(ProjectTaskExtend, self).unlink()
+
+    def action_set_high_priority_task(self):
+        for task in self:
+            task.priority = "1"
+
 
