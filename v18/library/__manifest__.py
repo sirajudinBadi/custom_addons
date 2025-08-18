@@ -10,7 +10,7 @@
     "license" : "LGPL-3",
     "application" : True,
     "installable" : True,
-    "sequence" : 3,
+    "sequence" : 4,
 
     "data" : [],
     "images" : ["static/description/icon.png"]
