@@ -20,8 +20,12 @@
                     <field name="team_id"/>
                 </xpath>
 
-                <xpath expr="//field[@name='description']" position="replace">
-                    <field name="description" placeholder="Indexing speeds up data retrieval but slower data storage." />
+                <xpath expr="//page[@name='settings']" position="after">
+                    <page string="Textual Description">
+                        <group>
+                            <field name="description_text" placeholder="Indexing speeds up data retrieval but slower data storage." />
+                        </group>
+                    </page>
                 </xpath>
 
                 <xpath expr="//notebook" position="inside">

@@ -1,7 +1,6 @@
 # -*-coding:utf-8-*-
 
 from odoo import models, fields, api
-from odoo.api import ValuesType, Self
 from odoo.exceptions import ValidationError, UserError
 
 
@@ -15,7 +14,7 @@ class ProjectExtend(models.Model):
         compute="_compute_member_ids",
         store=False
     )
-    description = fields.Text(string="Description", index=True, help="Indexing speeds up data retrieval but slower data storage.")
+    description_text = fields.Text(string="Description", index=True, help="Indexing speeds up data retrieval but slower data storage.")
 
     @api.depends("team_id", "team_id.team_member_ids")
     def _compute_member_ids(self):
