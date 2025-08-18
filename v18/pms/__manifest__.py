@@ -25,7 +25,7 @@
         "demo/project_city_demo_data.xml"
     ],
     "images": ["static/description/icon.png"],
-    "sequence": 1,
+    "sequence": 2,
     'assets': {
         'web.assets_backend': [
             'school/static/src/css/styles.css',
