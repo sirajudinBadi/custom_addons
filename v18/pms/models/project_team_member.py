@@ -86,4 +86,3 @@ class ProjectTeamMember(models.Model):
     def copy(self):
         raise ValidationError("Can not Duplicate record.")
 
-

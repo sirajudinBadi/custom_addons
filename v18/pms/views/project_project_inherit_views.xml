@@ -20,6 +20,10 @@
                     <field name="team_id"/>
                 </xpath>
 
+                <xpath expr="//field[@name='description']" position="replace">
+                    <field name="description" placeholder="Indexing speeds up data retrieval but slower data storage." />
+                </xpath>
+
                 <xpath expr="//notebook" position="inside">
                     <page string="Members">
                         <field name="member_ids" widget="many2many_kanban">

@@ -15,6 +15,7 @@ class ProjectExtend(models.Model):
         compute="_compute_member_ids",
         store=False
     )
+    description = fields.Text(string="Description", index=True, help="Indexing speeds up data retrieval but slower data storage.")
 
     @api.depends("team_id", "team_id.team_member_ids")
     def _compute_member_ids(self):
@@ -28,16 +29,16 @@ class ProjectExtend(models.Model):
 class ProjectTaskExtend(models.Model):
     _inherit = "project.task"
 
-    hide_date_assign = fields.Integer(compute="_compute_date_assign_hide", default=0)
-
-    @api.depends("stage_id")
-    def _compute_date_assign_hide(self):
-        for task in self:
-            stage = self.env.ref("project.project_stage_2")
-            if task.stage_id == stage:
-                task.hide_date_assign = 1
-            else:
-                task.hide_date_assign = 0
+    # hide_date_assign = fields.Boolean(compute="_compute_date_assign_hide", store=False)
+    #
+    # @api.depends("stage_id")
+    # def _compute_date_assign_hide(self):
+    #     for task in self:
+    #         stage = self.env.ref("project.project_stage_2")
+    #         if task.stage_id == stage:
+    #             task.hide_date_assign = True
+    #         else:
+    #             task.hide_date_assign = False
 
     @api.model
     def create(self, vals):
@@ -62,5 +63,4 @@ class ProjectTaskExtend(models.Model):
     def action_set_high_priority_task(self):
         for task in self:
             task.priority = "1"
-
 

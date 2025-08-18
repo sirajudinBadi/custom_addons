@@ -9,7 +9,7 @@ class ProjectTeam(models.Model):
     _order = "name asc"
     _description = "Teams"
 
-    name = fields.Char(string="Team Name", tracking=True, required=True)
+    name = fields.Char(string="Team Name", tracking=True, translate=True, required=True)
     team_leader = fields.Char(string="Team Leader", required=True, tracking=True)
     team_member_ids = fields.Many2many(
         "project.team.member",
