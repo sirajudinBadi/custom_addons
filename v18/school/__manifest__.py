@@ -10,7 +10,7 @@
     "license": "LGPL-3",
     "application": True,
     "installable": True,
-    "sequence": 2,
+    "sequence": 3,
 
     "data": [
         # "security/school_security.xml",
