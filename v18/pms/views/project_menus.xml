@@ -35,11 +35,9 @@
 
 
         <menuitem id="project_config_add_team_menu"
-                  name="Add Team"
+                  name="Teams"
                   parent="project.menu_project_config"
-                  action="pms.action_project_team_form"
-                  groups="project.group_project_manager"
-
+                  action="pms.action_project_team"
         />
 
     </data>

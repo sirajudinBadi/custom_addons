@@ -11,6 +11,7 @@
     "installable": True,
     "data": [
         "security/ir.model.access.csv",
+        "security/security.xml",
         "data/project_sequence.xml",
         "views/project_actions.xml",
         "views/project_menus.xml",

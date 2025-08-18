@@ -2,11 +2,41 @@
 
 <odoo>
     <data noupdate="1">
-        <record id="rule_task_specific_user_only" model="ir.rule">
-            <field name="name">rule.task.specific.user.only</field>
-            <field name="model_id" ref="project.model_project_task" />
-            <field name="groups" eval="[(4, ref(base.group_user))]" />
-            <field name="domain_force">[('user_ids','in',[user.id])]</field>
+        <!--Deactivate Predefined Rules To allow custom rule for Assignee Task view only-->
+
+        <!--        <record id="task_comp_rule" model="ir.rule">-->
+        <!--            <field name="model_id" ref="project.model_project_task" />-->
+        <!--            <field name="active" eval="False" />-->
+        <!--        </record>-->
+
+        <!--        <record id="task_visibility_rule" model="ir.rule">-->
+        <!--            <field name="model_id" ref="project.model_project_task" />-->
+        <!--            <field name="active" eval="False" />-->
+        <!--        </record>-->
+
+        <!--        <record id="project_manager_all_project_task_rule" model="ir.rule">-->
+        <!--            <field name="model_id" ref="project.model_project_task" />-->
+        <!--            <field name="active" eval="False" />-->
+        <!--        </record>-->
+
+        <!--        <record id="ir_rule_private_task" model="ir.rule">-->
+        <!--            <field name="model_id" ref="project.model_project_task" />-->
+        <!--            <field name="active" eval="False" />-->
+        <!--        </record>-->
+
+        <!--        <record id="project_task_rule_portal_project_sharing" model="ir.rule">-->
+        <!--            <field name="model_id" ref="project.model_project_task" />-->
+        <!--            <field name="active" eval="False" />-->
+        <!--        </record>-->
+
+        <record model="ir.rule" id="pms.task_visibility_rule">
+            <field name="name">Tasks: Users see only their assigned tasks</field>
+            <field name="model_id" ref="project.model_project_task"/>
+            <field name="domain_force">[
+                ('user_ids', 'in', [user.id])
+                ]
+            </field>
+            <field name="groups" eval="[(4, ref('project.group_project_user'))]"/>
         </record>
     </data>
 </odoo>

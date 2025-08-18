@@ -28,6 +28,17 @@ class ProjectExtend(models.Model):
 class ProjectTaskExtend(models.Model):
     _inherit = "project.task"
 
+    hide_date_assign = fields.Integer(compute="_compute_date_assign_hide", default=0)
+
+    @api.depends("stage_id")
+    def _compute_date_assign_hide(self):
+        for task in self:
+            stage = self.env.ref("project.project_stage_2")
+            if task.stage_id == stage:
+                task.hide_date_assign = 1
+            else:
+                task.hide_date_assign = 0
+
     @api.model
     def create(self, vals):
         if vals.get("date_assign") is None:

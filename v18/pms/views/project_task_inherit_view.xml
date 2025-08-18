@@ -13,6 +13,19 @@
             </field>
         </record>
 
+        <record id="pms.project_task_inherit_form_view" model="ir.ui.view">
+            <field name="name">pms.project.task.inherit.form.view</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_assign']" position="replace">
+                    <field name="date_assign" groups="base.group_no_one" invisible="hide_date_assign"/>
+<!--                    <attribute name="modifiers">-->
+<!--                        {"invisible": [["hide_date_assign", "=", true]]}-->
+<!--                    </attribute>-->
+                </xpath>
+            </field>
+        </record>
 
     </data>
 </odoo>
