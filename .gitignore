@@ -1,3 +1,23 @@
 __pycache__/
 *.pyc
 *.py[co]
+
+# Ignore Python cache/compiled files
+*.py[cod]
+*.pyo
+*.pyd
+
+# Ignore Odoo generated files
+*.log
+*.pot
+*.mo
+
+# Ignore IDE/project files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore system files
+.DS_Store
+Thumbs.db
