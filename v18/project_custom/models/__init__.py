@@ -1,1 +1,0 @@
-from . import project_custom_abstract_model
