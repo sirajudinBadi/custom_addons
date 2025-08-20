@@ -15,6 +15,7 @@
         "views/project_task_checklist_menus.xml",
         "views/project_task_checklist_views.xml",
         "views/project_task_inherit_view.xml",
+
     ],
     "images" : ["static/description/icon.png"],
 }
