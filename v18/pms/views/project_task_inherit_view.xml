@@ -11,9 +11,7 @@
                     <filter string="New Tasks" name="working_hours_open" domain="[('working_hours_open','&lt;=',5)]"/>
                 </xpath>
 
-                <xpath expr="//field[@name='date_assign']" position="attributes">
-                    <attribute name="attrs">{'invisible': [('stage_id.name', '=', 'Done')]}</attribute>
-                </xpath>
+
             </field>
         </record>
 
@@ -25,9 +23,13 @@
                 <xpath expr="//field[@name='description']" position="after">
                     <notebook>
                         <page string="Timesheets">
-                            <field name="timesheet_ids" />
+                            <field name="timesheet_ids"/>
                         </page>
                     </notebook>
+                </xpath>
+
+                <xpath expr="//field[@name='date_assign']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('stage_id.name', '=', 'Done')]}</attribute>
                 </xpath>
             </field>
         </record>
