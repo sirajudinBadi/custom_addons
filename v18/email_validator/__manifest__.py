@@ -8,7 +8,6 @@
     "author" : "John Doe",
     "website" : "www.example.com",
     "data" : [
-        "security/ir.model.access.csv",
     ],
     "sequence" : 5,
 
