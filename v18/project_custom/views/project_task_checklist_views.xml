@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_project_task_checklist_list" model="ir.ui.view">
+            <field name="name">view.project.task.checklist.list</field>
+            <field name="model">project.task.checklist</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="task_id"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_project_task_checklist_form" model="ir.ui.view">
+            <field name="name">view.project.task.checklist.form</field>
+            <field name="model">project.task.checklist</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="task_id"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

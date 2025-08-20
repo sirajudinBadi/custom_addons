@@ -1,0 +1,20 @@
+{
+    "name" : "Project Custom",
+    "description" : "Custom Project Module",
+    "summary" : """Custom Project Module for Inheritance practice purpose.""",
+    "category" : "Project",
+    "sequence" : 1,
+    "author" : "John Doe",
+    "application" : True,
+    "installable" : True,
+    "website" : "www.example.com",
+    "depends" : ["base", "project","report_xlsx"],
+    "data" : [
+        "security/ir.model.access.csv",
+        "views/project_task_checklist_actions.xml",
+        "views/project_task_checklist_menus.xml",
+        "views/project_task_checklist_views.xml",
+        "views/project_task_inherit_view.xml",
+    ],
+    "images" : ["static/description/icon.png"],
+}
