@@ -56,7 +56,7 @@ class ProjectTaskExtend(models.Model):
         for rec in self:
             stage = self.env.ref("project.project_stage_1")
             if rec.stage_id == stage:
-                raise UserError("Can not delete IN PROGRESS task.")
+                raise UserError("Can not delete tasks that are in progress.")
         return super(ProjectTaskExtend, self).unlink()
 
     def action_set_high_priority_task(self):

@@ -27,10 +27,6 @@
                         </page>
                     </notebook>
                 </xpath>
-
-                <xpath expr="//field[@name='date_assign']" position="attributes">
-                    <attribute name="attrs">{'invisible': [('stage_id.name', '=', 'Done')]}</attribute>
-                </xpath>
             </field>
         </record>
 
