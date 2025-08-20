@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <menuitem id="menu_task_report_wizard"
+                  name="Tasks Reports"
+                  parent="project.menu_project_report"
+                  action="project_custom.action_project_task_report_wizard"
+
+        />
+
+    </data>
+</odoo>

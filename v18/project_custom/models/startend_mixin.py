@@ -9,8 +9,8 @@ class StartEndMixin(models.AbstractModel):
     _description = "Start End Mixin"
     _abstract = True
 
-    date_start = fields.Date("Start Date")
-    date_end = fields.Date("End Date")
+    date_start = fields.Datetime("Start Date", index=True, copy=False)
+    date_end = fields.Datetime("End Date", index=True, copy=False)
 
     @api.constrains("date_start", "date_end")
     def validate_dates(self):

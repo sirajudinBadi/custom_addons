@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="action_project_task_report_wizard" model="ir.actions.act_window">
+            <field name="name">Tasks Reports</field>
+            <field name="res_model">project.task.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

@@ -10,6 +10,10 @@
                 <xpath expr="//field[@name='partner_id']" position="after">
                     <filter string="New Tasks" name="working_hours_open" domain="[('working_hours_open','&lt;=',5)]"/>
                 </xpath>
+
+                <xpath expr="//field[@name='date_assign']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('stage_id.name', '=', 'Done')]}</attribute>
+                </xpath>
             </field>
         </record>
 

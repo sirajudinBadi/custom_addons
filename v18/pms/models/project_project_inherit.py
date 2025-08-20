@@ -28,16 +28,16 @@ class ProjectExtend(models.Model):
 class ProjectTaskExtend(models.Model):
     _inherit = "project.task"
 
-    # hide_date_assign = fields.Boolean(compute="_compute_date_assign_hide", store=False)
-    #
-    # @api.depends("stage_id")
-    # def _compute_date_assign_hide(self):
-    #     for task in self:
-    #         stage = self.env.ref("project.project_stage_2")
-    #         if task.stage_id == stage:
-    #             task.hide_date_assign = True
-    #         else:
-    #             task.hide_date_assign = False
+    hide_date_assign = fields.Boolean(compute="_compute_date_assign_hide", store=False)
+
+    @api.depends("stage_id")
+    def _compute_date_assign_hide(self):
+        for task in self:
+            stage = self.env.ref("project.project_stage_2")
+            if task.stage_id == stage:
+                task.hide_date_assign = True
+            else:
+                task.hide_date_assign = False
 
     @api.model
     def create(self, vals):

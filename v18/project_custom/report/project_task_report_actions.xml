@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- Report Action -->
+        <record id="report_task_xlsx" model="ir.actions.report">
+            <field name="name">Tasks XLSX</field>
+            <field name="model">project.task</field>
+            <field name="report_type">xlsx</field>
+            <!-- This must match your AbstractModel _name (after 'report.') -->
+            <field name="report_name">project_custom.project_task_xlsx</field>
+            <field name="report_file">project_custom.project_task_xlsx</field>
+            <field name="binding_model_id" ref="project.model_project_task"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_task_pdf" model="ir.actions.report">
+            <field name="name">Task PDF Report</field>
+            <field name="model">project.task</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">project_custom.task_report_template</field>
+            <field name="report_file">project_custom.task_report_template</field>
+            <field name="binding_model_id" ref="project.model_project_task" />
+            <field name="binding_type">report</field>
+        </record>
+
+    </data>
+</odoo>
