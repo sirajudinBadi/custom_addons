@@ -37,16 +37,16 @@
         </record>
 
 
-        <record id="inherit_view_task_search" model="ir.ui.view">
-            <field name="name">inherit.view.task.search</field>
-            <field name="model">project.task</field>
-            <field name="inherit_id" ref="project.view_task_search_form_base" />
-            <field name="arch" type="xml">
-                <xpath expr="//search" position="attributes">
-                    <attribute name="default_order">name asc, priority desc, sequence, state, date_deadline asc, id desc</attribute>
-                </xpath>
-            </field>
-        </record>
+<!--        <record id="inherit_view_task_search" model="ir.ui.view">-->
+<!--            <field name="name">inherit.view.task.search</field>-->
+<!--            <field name="model">project.task</field>-->
+<!--            <field name="inherit_id" ref="project.view_task_search_form_base" />-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//search" position="attributes">-->
+<!--                    <attribute name="default_order">name asc, priority desc, sequence, state, date_deadline asc, id desc</attribute>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
 
 
     </data>
