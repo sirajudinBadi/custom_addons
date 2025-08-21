@@ -1,16 +1,19 @@
 {
-    "name": "Email Remainder",
-    "description": "Email Remainder",
+    "name": "Email Configuration",
+    "description": "Email Configuration",
     "summary": "Task email remainder for deadline and timesheet tracker.",
     "author": "John Doe",
     "website": "www.example.com",
     "license" : "LGPL-3",
     "depends": ['base','mail','project','hr_timesheet'],
-    "application": False,
+    "application": True,
     "installable": True,
     "data" : [
         "security/ir.model.access.csv",
         "data/cron_task_remainder.xml",
         "data/cron_timesheet_summary.xml",
+        "views/res_partner_inherited_views.xml",
     ],
+    "sequence" : 5,
+    "images" : ["static/description/logo.png"],
 }
