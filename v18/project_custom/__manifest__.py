@@ -5,6 +5,7 @@
     "category": "Project",
     "sequence": 1,
     "author": "John Doe",
+    "license": "LGPL-3",
     "application": True,
     "installable": True,
     "website": "www.example.com",

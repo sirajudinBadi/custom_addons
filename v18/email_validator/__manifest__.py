@@ -1,15 +1,16 @@
 {
-    "name":"Email Validator",
-    "description" : "Email Validator for res.partner",
-    "summary" : """This module acts as the email validator for the res.partner module.""",
-    "depends" : ["base"],
-    "application" : False,
-    "installable" : True,
-    "author" : "John Doe",
-    "website" : "www.example.com",
-    "data" : [
+    "name": "Email Validator",
+    "description": "Email Validator for res.partner",
+    "summary": """This module acts as the email validator for the res.partner module.""",
+    "depends": ["base"],
+    "application": False,
+    "installable": True,
+    "author": "John Doe",
+    "license": "LGPL-3",
+    "website": "www.example.com",
+    "data": [
     ],
-    "sequence" : 5,
+    "sequence": 5,
 
-    "images" : ["static/description/icon.png"],
+    "images": ["static/description/icon.png"],
 }
