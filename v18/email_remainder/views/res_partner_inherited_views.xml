@@ -5,10 +5,10 @@
         <record id="email_remainder.view_res_partner_inherit_form" model="ir.ui.view">
             <field name="name">view.res.partner.inherit.form</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='website']" position="after">
-                    <field name="restrict_email" widget="boolean_toggle" />
+                    <field name="restrict_email" widget="boolean_toggle"/>
                 </xpath>
             </field>
         </record>
