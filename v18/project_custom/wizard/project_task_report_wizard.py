@@ -9,10 +9,10 @@ class ProjectTaskReportWizard(models.TransientModel):
     _inherit = 'startend.mixin'
 
     def _get_tasks(self):
-        abc = self.env['project.task'].sudo().search([
-            ('date_start', '>=', self.date_start),
-            ('date_end', '<=', self.date_end)
-        ])
+        # abc = self.env['project.task'].sudo().search([
+        #     ('date_start', '>=', self.date_start),
+        #     ('date_end', '<=', self.date_end)
+        # ])
         return self.env['project.task'].sudo().search([
             ('date_start', '>=', self.date_start),
             ('date_end', '<=', self.date_end)
