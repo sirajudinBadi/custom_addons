@@ -2,7 +2,7 @@
 <odoo>
     <template id="crm_lead_list_template" name="CRM Leads">
         <t t-call="website.layout">
-            <div class="container mt-4">
+            <div class="container my-4">
                 <h2>Leads</h2>
                 <a t-attf-href="/leads/form" class="btn btn-primary">Create Lead <i class="fa-solid fa-business-time" /></a>
                 <table class="table table-striped">

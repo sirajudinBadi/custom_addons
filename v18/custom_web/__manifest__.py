@@ -13,6 +13,8 @@
         "views/custom_web_menus.xml",
         "views/crm_lead_list_template.xml",
         "views/crm_lead_form_template.xml",
+        "views/crm_lead_edit_template.xml",
+
     ],
     "sequence" : "6"
 }
