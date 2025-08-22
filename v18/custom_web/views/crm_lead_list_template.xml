@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="crm_lead_list_template" name="CRM Leads">
+        <t t-call="website.layout">
+            <div class="container mt-4">
+                <h2>Leads</h2>
+                <a t-attf-href="/leads/form" class="btn btn-primary">Create Lead <i class="fa-solid fa-business-time" /></a>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Name</th>
+                        <th>Partner</th>
+                        <th>Email</th>
+                        <th>Expected Revenue</th>
+                        <th>Probability</th>
+                    </tr>
+                    <t t-foreach="leads" t-as="lead">
+                        <tr>
+                            <td><t t-esc="lead.name" /></td>
+                            <td><t t-esc="lead.partner_id.name" /></td>
+                            <td><t t-esc="lead.email_from" /></td>
+                            <td><t t-esc="lead.expected_revenue" /></td>
+                            <td><t t-esc="lead.probability" /></td>
+                        </tr>
+                    </t>
+                </table>
+<!--                <ul>-->
+<!--                    <t t-foreach="leads" t-as="lead">-->
+<!--                        <li>-->
+<!--                            <t t-esc="lead.name" /> - <t t-esc="lead.partner_id.name" /> - <t t-esc="lead.email_from" />-->
+<!--                        </li>-->
+<!--                    </t>-->
+<!--                </ul>-->
+            </div>
+        </t>
+    </template>
+</odoo>
