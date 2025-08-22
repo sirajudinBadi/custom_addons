@@ -5,7 +5,7 @@
     "author": "John Doe",
     "website": "www.example.com",
     "license" : "LGPL-3",
-    "depends": ['base','mail','project','hr_timesheet'],
+    "depends": ['base','mail','project','hr_timesheet','purchase'],
     "application": True,
     "installable": True,
     "data" : [
@@ -13,6 +13,7 @@
         "data/cron_task_remainder.xml",
         "data/cron_timesheet_summary.xml",
         "views/res_partner_inherited_views.xml",
+        "wizard/inherited_res_config_settings_views.xml",
     ],
     "sequence" : 5,
     "images" : ["static/description/logo.png"],

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="email_remainder.view_inherited_res_config_settings_form" model="ir.ui.view">
+            <field name="name">view.inherited.res.config.settings.form</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="sale.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//app[@name='sale_management']" position="inside">
+                    <block title="Credit" id="credit_limit_settings">
+                        <setting id="credit_limit" title="Credit limit of a partner">
+                            <field name="credit_limit" readonly="0"/>
+                        </setting>
+                    </block>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
