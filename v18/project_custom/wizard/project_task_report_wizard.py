@@ -1,4 +1,4 @@
-# -*-coding:utf-8-*-
+# -*-coding:utf-8-*-res_company
 
 from odoo import models
 from odoo.exceptions import ValidationError
@@ -13,7 +13,6 @@ class ProjectTaskReportWizard(models.TransientModel):
             ('date_start', '>=', self.date_start),
             ('date_end', '<=', self.date_end)
         ])
-        print("\n\nqqqqqqqqqqqq---", abc)
         return self.env['project.task'].sudo().search([
             ('date_start', '>=', self.date_start),
             ('date_end', '<=', self.date_end)
