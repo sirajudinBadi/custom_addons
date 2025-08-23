@@ -4,7 +4,9 @@
         <t t-call="website.layout">
             <div class="container my-4">
                 <h2>Leads</h2>
-                <a t-attf-href="/leads/form" class="btn btn-primary">Create Lead <i class="fa-solid fa-business-time" /></a>
+                <a t-attf-href="/leads/form" class="btn btn-primary">Create Lead
+                    <i class="fa-solid fa-business-time"/>
+                </a>
                 <table class="table table-striped">
                     <tr>
                         <th>Name</th>
@@ -16,25 +18,46 @@
                     </tr>
                     <t t-foreach="leads" t-as="lead">
                         <tr>
-                            <td><a t-attf-href="/leads/#{lead.id}/edit"><t t-esc="lead.name" /></a></td>
-                            <td><t t-esc="lead.partner_id.name" /></td>
-                            <td><t t-esc="lead.email_from" /></td>
-                            <td><t t-esc="lead.expected_revenue" /></td>
-                            <td><t t-esc="lead.probability" /></td>
                             <td>
-                                <a t-attf-href="/leads/#{lead.id}/edit"><i class="fa fa-pencil" /></a>
-                                <a t-attf-href=""><i class="fa fa-trash" /></a>
+                                <a t-attf-href="/leads/#{lead.id}/edit" class="text-decoration-none">
+                                    <t t-esc="lead.name"/>
+                                </a>
+                            </td>
+                            <td>
+                                <t t-esc="lead.partner_id.name"/>
+                            </td>
+                            <td>
+                                <t t-esc="lead.email_from"/>
+                            </td>
+                            <td class="text-center">
+                                <t t-esc="lead.expected_revenue"/>
+                            </td>
+                            <td class="text-center">
+                                <t t-esc="lead.probability"/>
+                            </td>
+                            <td class="text-center">
+                                <a t-attf-href="/leads/#{lead.id}/edit" class="text-decoration-none me-2">
+                                    <i class="fa fa-pencil"/>
+                                </a>
+
+                                <form t-attf-action="/leads/#{lead.id}/delete" method="post" style="display:inline;">
+<!--                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />-->
+                                    <button type="submit" class="btn btn-link p-0"
+                                            onclick="return confirm('Are you sure you want to delete this lead?');">
+                                        <i class="fa fa-trash"/>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     </t>
                 </table>
-<!--                <ul>-->
-<!--                    <t t-foreach="leads" t-as="lead">-->
-<!--                        <li>-->
-<!--                            <t t-esc="lead.name" /> - <t t-esc="lead.partner_id.name" /> - <t t-esc="lead.email_from" />-->
-<!--                        </li>-->
-<!--                    </t>-->
-<!--                </ul>-->
+                <!--                <ul>-->
+                <!--                    <t t-foreach="leads" t-as="lead">-->
+                <!--                        <li>-->
+                <!--                            <t t-esc="lead.name" /> - <t t-esc="lead.partner_id.name" /> - <t t-esc="lead.email_from" />-->
+                <!--                        </li>-->
+                <!--                    </t>-->
+                <!--                </ul>-->
             </div>
         </t>
     </template>
