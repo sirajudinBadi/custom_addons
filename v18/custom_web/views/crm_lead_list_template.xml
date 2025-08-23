@@ -12,14 +12,19 @@
                         <th>Email</th>
                         <th>Expected Revenue</th>
                         <th>Probability</th>
+                        <th>Actions</th>
                     </tr>
                     <t t-foreach="leads" t-as="lead">
                         <tr>
-                            <td><t t-esc="lead.name" /></td>
+                            <td><a t-attf-href="/leads/#{lead.id}/edit"><t t-esc="lead.name" /></a></td>
                             <td><t t-esc="lead.partner_id.name" /></td>
                             <td><t t-esc="lead.email_from" /></td>
                             <td><t t-esc="lead.expected_revenue" /></td>
                             <td><t t-esc="lead.probability" /></td>
+                            <td>
+                                <a t-attf-href="/leads/#{lead.id}/edit"><i class="fa fa-pencil" /></a>
+                                <a t-attf-href=""><i class="fa fa-trash" /></a>
+                            </td>
                         </tr>
                     </t>
                 </table>
