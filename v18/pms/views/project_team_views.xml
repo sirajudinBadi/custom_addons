@@ -51,7 +51,7 @@
                             </group>
                             <notebook>
                                 <page string="Members">
-                                    <field name="team_member_ids" />
+                                    <field name="team_member_ids"/>
                                 </page>
                                 <page string="Projects">
                                     <field name="project_ids"/>
@@ -60,10 +60,7 @@
                         </group>
                     </sheet>
 
-                    <div class="oe_chatter">
-                        <field name="message_ids" widget="mail_thread"/>
-                        <field name="activity_ids" widget="mail_activity"/>
-                    </div>
+                    <chatter/>
                 </form>
             </field>
         </record>

@@ -3,7 +3,7 @@
 <odoo>
     <data>
         <menuitem id="project_root_menu"
-                  name="Projects"
+                  name="Team Management"
                   sequence="1"
         />
 
