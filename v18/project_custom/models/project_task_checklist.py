@@ -13,4 +13,4 @@ class ProjectTaskChecklist(models.Model):
     _inherit = ["startend.mixin"]
     _inherits = {"project.task" : "task_id"}
 
-    task_id = fields.Many2one("project.task", "Task")
+    task_id = fields.Many2one("project.task", "Task", required=True, ondelete="cascade")
