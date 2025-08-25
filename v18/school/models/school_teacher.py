@@ -55,7 +55,7 @@ class Teacher(models.Model):
     primary_subject = fields.Many2one(
         "school.subject",
         string = "Subject",
-        ondeleted="set null",
+        ondelete="set null",
     )
 
     subject_ids = fields.Many2many(
