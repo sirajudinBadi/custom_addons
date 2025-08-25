@@ -30,5 +30,17 @@
             </field>
         </record>
 
+        <record id="view_task_form_inherit_date_assign" model="ir.ui.view">
+            <field name="name">project.task.form.inherit.date.assign</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <!-- Add fields under the task form -->
+                <xpath expr="//field[@name='date_assign']" position="replace">
+                    <field name="date_assign" invisible="hide_date_assign" readonly="0"/>
+                </xpath>
+            </field>
+        </record>
+
     </data>
 </odoo>

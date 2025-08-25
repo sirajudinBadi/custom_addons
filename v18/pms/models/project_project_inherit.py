@@ -28,6 +28,8 @@ class ProjectExtend(models.Model):
 class ProjectTaskExtend(models.Model):
     _inherit = "project.task"
 
+    date_assign = fields.Datetime("Assigned Date", help="Date of assignment")
+
     hide_date_assign = fields.Boolean(compute="_compute_date_assign_hide", store=False)
 
     @api.depends("stage_id")
@@ -39,18 +41,24 @@ class ProjectTaskExtend(models.Model):
             else:
                 task.hide_date_assign = False
 
+    @api.constrains('date_assign')
+    def check_assigned_date(self):
+        for rec in self:
+            if rec.date_assign and rec.date_assign < fields.Datetime.now():
+                raise ValidationError("Assigned Date can not be earlier then current time.")
+
     @api.model
     def create(self, vals):
         if vals.get("date_assign") is None:
             vals["date_assign"] = fields.Datetime.now()
         return super(ProjectTaskExtend, self).create(vals)
 
-    def write(self, vals):
-        # Only validate if date_assign is explicitly being updated
-        if "date_assign" in vals and vals["date_assign"]:
-            if vals["date_assign"] < fields.Datetime.now():
-                raise ValidationError("Invalid date assigned.")
-        return super(ProjectTaskExtend, self).write(vals)
+    # def write(self, vals):
+    #     # Only validate if date_assign is explicitly being updated
+    #     if "date_assign" in vals and vals["date_assign"]:
+    #         if vals["date_assign"] < fields.Datetime.now():
+    #             raise ValidationError("Invalid date assigned.")
+    #     return super(ProjectTaskExtend, self).write(vals)
 
     def unlink(self):
         for rec in self:
