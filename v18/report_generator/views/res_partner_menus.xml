@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <menuitem id="report_generator.customer_report_menu"
+                  name = "Customer PDF Report"
+                  action="report_generator.report_customer_action"
+                  parent="menu_contacts"
+        />
+    </data>
+</odoo>

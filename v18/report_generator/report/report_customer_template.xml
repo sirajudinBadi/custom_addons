@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <template id="report_generator.customer_report_template">
+        <div class="oe_container">
+
+        </div>
+    </template>
+</odoo>

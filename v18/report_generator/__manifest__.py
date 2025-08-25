@@ -7,5 +7,8 @@
     "depends" : ["base", "web", "sale",],
     "license" : "LGPL-3",
     "version" : "18.0.0.1",
-    "data" : [],
+    "data" : [
+        "report_customer_action.xml",
+        "views/res_partner_menus.xml",
+    ],
 }
