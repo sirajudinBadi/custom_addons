@@ -1,130 +1,94 @@
 <odoo>
     <template id="report_generator.project_timesheet_report">
         <t t-call="web.html_container">
-            <div class="page" >
-                <div style="display:flex; justify-content:space-between; align-items:center; padding:10px; border-bottom:0.5px solid orange">
+            <div class="page">
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:10px; border-bottom:0.5px solid #DE5833">
                     <div>
                         <t t-if="company.logo">
-                        <img t-att-src="image_data_uri(company.logo)"
-                             style="max-width:120px; max-height:80px;"/>
-                    </t>
+                            <img t-att-src="image_data_uri(company.logo)"
+                                 style="max-width:120px; max-height:80px;"/>
+                        </t>
                     </div>
                     <div>
                         <h2 class="mb-0" style="font-size:16px;">
-                        <t t-esc="company.name"/>
-                    </h2>
-                    <p class="mb-0" style="font-size:12px;">
-                        <t t-esc="company.street"/>
-                        <t t-if="company.street2">,
-                            <t t-esc="company.street2"/>
-                        </t>
-                        <br/>
-                        <t t-esc="company.city"/>
-                        <t t-if="company.state_id">,
-                            <t t-esc="company.state_id.name"/>
-                        </t>
-                        <t t-if="company.zip">-
-                            <t t-esc="company.zip"/>
-                        </t>
-                        <br/>
-                        <t t-if="company.website">Website:
-                            <t t-esc="company.website"/>
-                        </t>
-                    </p>
+                            <t t-esc="company.name"/>
+                        </h2>
+                        <p class="mb-0" style="font-size:12px;">
+                            <t t-esc="company.street"/>
+                            <t t-if="company.street2">,
+                                <t t-esc="company.street2"/>
+                            </t>
+                            <br/>
+                            <t t-esc="company.city"/>
+                            <t t-if="company.state_id">,
+                                <t t-esc="company.state_id.name"/>
+                            </t>
+                            <t t-if="company.zip">-
+                                <t t-esc="company.zip"/>
+                            </t>
+                            <br/>
+                            <t t-if="company.website">Website:
+                                <t t-esc="company.website"/>
+                            </t>
+                        </p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Header: Company Logo + Info -->
-<!--            <div class="d-flex justify-content-between align-items-center mb-3"-->
-<!--                 style="border-bottom:2px solid #000; padding-bottom:10px;">-->
-<!--                &lt;!&ndash; Company Logo &ndash;&gt;-->
-<!--                <div class="flex-shrink-0 me-3">-->
-<!--                    <t t-if="company.logo_web">-->
-<!--                        <img t-att-src="'data:image/png;base64,%s' % company.logo_web"-->
-<!--                             style="max-width:120px; max-height:80px;"/>-->
-<!--                    </t>-->
-<!--                </div>-->
 
-<!--                &lt;!&ndash; Company Info &ndash;&gt;-->
-<!--                <div class="flex-grow-1 text-end">-->
-<!--                    <h2 class="mb-0" style="font-size:16px;">-->
-<!--                        <t t-esc="company.name"/>-->
-<!--                    </h2>-->
-<!--                    <p class="mb-0" style="font-size:12px;">-->
-<!--                        <t t-esc="company.street"/>-->
-<!--                        <t t-if="company.street2">,-->
-<!--                            <t t-esc="company.street2"/>-->
-<!--                        </t>-->
-<!--                        <br/>-->
-<!--                        <t t-esc="company.city"/>-->
-<!--                        <t t-if="company.state_id">,-->
-<!--                            <t t-esc="company.state_id.name"/>-->
-<!--                        </t>-->
-<!--                        <t t-if="company.zip">- -->
-<!--                            <t t-esc="company.zip"/>-->
-<!--                        </t>-->
-<!--                        <br/>-->
-<!--                        <t t-if="company.website">Website:-->
-<!--                            <t t-esc="company.website"/>-->
-<!--                        </t>-->
-<!--                    </p>-->
-<!--                </div>-->
-<!--            </div>-->
+                <t t-foreach="grouped_data.items()" t-as="project_group">
+                    <t t-set="project" t-value="project_group[0]"/>
+                    <t t-set="tasks" t-value="project_group[1]"/>
+                    <div class="page mx-4" style="margin-bottom:20px;">
+                        <h2 style="background-color:#DE5833; padding:0px 20px; color:white; border-radius:5em 1em;">Project:
+                            <t t-esc="project.name"/>
+                        </h2>
+                        <p>Date Range:
+                            <t t-esc="date_from"/>
+                            To
+                            <t t-esc="date_to"/>
+                        </p>
+                        <p>(Project + Task Hours: <t t-esc="(project.allocated_hours or 0) + sum([t.allocated_hours or 0 for t in tasks.keys()])"/>)</p>
 
-<!--            &lt;!&ndash; Timesheet Report &ndash;&gt;-->
-            <t t-foreach="grouped_data.items()" t-as="project_group">
-                <t t-set="project" t-value="project_group[0]"/>
-                <t t-set="tasks" t-value="project_group[1]"/>
-                <div class="page mx-4" style="margin-bottom:20px;">
-                    <h2 style="background-color:black; color:white;">Project:
-                        <t t-esc="project.name"/>
-                    </h2>
-                    <p>Date Range:
-                        <t t-esc="date_from"/>
-                        To
-                        <t t-esc="date_to"/>
-                    </p>
+                        <t t-foreach="tasks.items()" t-as="task_group">
+                            <t t-set="task" t-value="task_group[0]"/>
+                            <t t-set="timesheets" t-value="task_group[1]"/>
+                            <h3 style="margin-top:10px;">Task:
+                                <t t-esc="task.name"/>
+                            </h3>
 
-                    <t t-foreach="tasks.items()" t-as="task_group">
-                        <t t-set="task" t-value="task_group[0]"/>
-                        <t t-set="timesheets" t-value="task_group[1]"/>
-                        <h3 style="margin-top:10px;">Task:
-                            <t t-esc="task.name"/>
-                        </h3>
-
-                        <table class="table table-sm table-bordered"
-                               style="width:100%; border-collapse:collapse; margin-bottom:15px;">
-                            <thead>
-                                <tr style="background-color:#f2f2f2;">
-                                    <th>Date</th>
-                                    <th>Employee</th>
-                                    <th>Description</th>
-                                    <th style="text-align:right;">Hours</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <t t-foreach="timesheets" t-as="ts">
-                                    <tr>
-                                        <td>
-                                            <t t-esc="ts.date"/>
-                                        </td>
-                                        <td>
-                                            <t t-esc="ts.employee_id.name or 'N/A'"/>
-                                        </td>
-                                        <td>
-                                            <t t-esc="ts.name"/>
-                                        </td>
-                                        <td style="text-align:right;">
-                                            <t t-esc="ts.unit_amount"/>
-                                        </td>
+                            <table class="table table-sm table-bordered"
+                                   style="width:100%; border-collapse:collapse; margin-bottom:15px;">
+                                <thead>
+                                    <tr style="background-color:#f2f2f2;">
+                                        <th>Date</th>
+                                        <th>Employee</th>
+                                        <th>Description</th>
+                                        <th style="text-align:right;">Hours</th>
                                     </tr>
-                                </t>
-                            </tbody>
-                        </table>
-                    </t>
-                </div>
-            </t>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="timesheets" t-as="ts">
+                                        <tr>
+                                            <td>
+                                                <t t-esc="ts.date"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="ts.employee_id.name or 'N/A'"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="ts.name"/>
+                                            </td>
+                                            <td style="text-align:right;">
+                                                <t t-esc="ts.unit_amount"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                    </div>
+                </t>
+            </div>
         </t>
     </template>
 </odoo>
