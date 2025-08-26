@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="report_generator.report_project_timesheet_submenu"
+              name="Project Timesheet Report"
+              parent="project.menu_project_report"
+              action="report_generator.action_date_range_wizard_form"
+              sequence="30"
+    />
+</odoo>

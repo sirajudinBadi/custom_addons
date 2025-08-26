@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <odoo>
-    <data>
+        <record id="report_generator.action_generate_customer_pdf" model="ir.actions.server">
+            <field name="name">Generate Customer PDF Report</field>
+            <field name="model_id" ref="base.model_res_partner" />
+            <field name="state">code</field>
+            <field name="code">
+                action=env["res.partner"].generate_customer_pdf()
+            </field>
+        </record>
+
         <record id="report_generator.report_customer_action" model="ir.actions.report">
             <field name="name">Customers PDF Report</field>
             <field name="model">res.partner</field>
             <field name="report_type">qweb-pdf</field>
             <field name="report_name">report_generator.customer_report_template</field>
             <field name="report_file">report_generator.customer_report_template</field>
-            <field name="binding_model_id" ref="">base.model_res_partner</field>
+            <field name="binding_model_id" ref="base.model_res_partner" />
             <field name="binding_type">report</field>
         </record>
-    </data>
 </odoo>

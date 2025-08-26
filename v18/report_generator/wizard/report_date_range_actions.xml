@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="report_generator.action_date_range_wizard_form" model="ir.actions.act_window">
+            <field name="name">Date Range for Project Timesheet Report</field>
+            <field name="res_model">report.date.range</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

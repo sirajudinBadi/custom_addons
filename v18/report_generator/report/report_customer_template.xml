@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <odoo>
     <template id="report_generator.customer_report_template">
-        <div class="oe_container">
+        <t t-call="web.html_container">
+            <t t-set="docs" t-value="docs"/>
+            <div class="page">
+                <h2 style="text-align:center; margin-bottom:20px;">Customer Report</h2>
 
-        </div>
+                <table style="width:100%; border-collapse:collapse; font-size:13px;">
+                    <thead style="background-color:#f0f0f0;">
+                        <tr>
+                            <th style="border:1px solid #000; padding:6px; text-align:left;">Name</th>
+                            <th style="border:1px solid #000; padding:6px; text-align:left;">Email</th>
+                            <th style="border:1px solid #000; padding:6px; text-align:right;">Credit Limit</th>
+                            <th style="border:1px solid #000; padding:6px; text-align:left;">Country</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="docs" t-as="customer">
+                            <tr>
+                                <td style="border:1px solid #000; padding:6px;"><t t-esc="customer.name"/></td>
+                                <td style="border:1px solid #000; padding:6px;"><t t-esc="customer.email"/></td>
+                                <td style="border:1px solid #000; padding:6px; text-align:right;">
+                                    <t t-esc="customer.credit_limit"/>
+                                </td>
+                                <td style="border:1px solid #000; padding:6px;">
+                                    <t t-esc="customer.country_id.name or ''"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
     </template>
 </odoo>

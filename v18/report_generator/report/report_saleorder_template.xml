@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_generator.template_saleorder_image" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//span[@t-field='line.name']" position="before">
+            <span>
+                <t t-if="line.product_template_id.image_1920">
+                    <img t-att-src="image_data_uri(line.product_template_id.image_1920)" style="max-width:80px; max-height:80px; margin-right:15px; border-radius:40%" />
+                </t>
+            </span>
+        </xpath>
+
+        <xpath expr="//span[@t-field='line.discount']" position="attributes">
+            <attribute name="style">background-color: #71639E; font-weight: bold; padding: 3px 5px; border-radius:15%; color:white;</attribute>
+        </xpath>
+    </template>
+</odoo>

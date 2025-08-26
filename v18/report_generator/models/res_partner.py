@@ -17,6 +17,8 @@ class ResPartner(models.Model):
 
     def generate_customer_pdf(self):
         customers = self.get_customers()
+        print(f"========================\n{customers}")
         if not customers:
             raise ValidationError("No customers exist.")
+        print(self.env.ref("report_generator.report_customer_action").report_action(customers))
         return self.env.ref("report_generator.report_customer_action").report_action(customers)
