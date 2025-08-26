@@ -16,7 +16,6 @@ class ReportProjectTimesheet(models.AbstractModel):
         ]
         company = self.env.company
         timesheets = self.env["account.analytic.line"].sudo().search(domain,order="project_id, task_id, date")
-        print(self.env["account.analytic.line"].sudo().search(domain))
         grouped_data = {}
 
         for ts in timesheets:
@@ -33,7 +32,6 @@ class ReportProjectTimesheet(models.AbstractModel):
 
             # add timesheet to that task group
             grouped_data[project][task].append(ts)
-        print(f"===============================================\n{grouped_data}")
         return {
             "doc_ids" : timesheets.ids,
             "doc_model" : "account.analytic.line",
