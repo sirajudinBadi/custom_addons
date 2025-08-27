@@ -42,11 +42,6 @@
                         <h2 style="background-color:#DE5833; padding:0px 20px; color:white; border-radius:5em 1em;">Project:
                             <t t-esc="project.name"/>
                         </h2>
-                        <p>Date Range:
-                            <t t-esc="date_from"/>
-                            To
-                            <t t-esc="date_to"/>
-                        </p>
                         <p>(Project + Task Hours: <t t-esc="(project.allocated_hours or 0) + sum([t.allocated_hours or 0 for t in tasks.keys()])"/>)</p>
 
                         <t t-foreach="tasks.items()" t-as="task_group">
