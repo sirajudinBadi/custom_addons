@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<templates xml:space="preserve">
+    <t t-name="owl_customer_quick_info.PartnerListController.Buttons"
+       t-inherit="web.ListView.Buttons">
+
+        <xpath expr="//t[contains(@t-if, 'editedRecord')]" position="before">
+            <button class="btn btn-primary"
+                    t-on-click="openQuickInfo"
+            >
+                Quick Info
+            </button>
+        </xpath>
+    </t>
+
+    <t t-name="owl_customer_quick_info.CustomerQuickInfoDialog">
+        <Dialog>
+            <t t-if="!state.customers.length">
+                Unable to fetch customers or no customers exist....
+            </t>
+            <t t-else="">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="state.customers" t-as="customer" t-key="customer.id">
+                            <tr>
+                                <td><t t-esc="customer.name" /></td>
+                                <td><t t-esc="customer.email" /></td>
+                                <td><t t-esc="customer.phone" /></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </t>
+            <t t-set-slot="footer">
+                <button type="button" class="btn btn-danger" t-on-click="close">Close</button>
+            </t>
+        </Dialog>
+    </t>
+</templates>
