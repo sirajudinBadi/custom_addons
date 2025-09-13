@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="portal_leave.leave_list_template" name="Leaves">
+        <t t-call="website.layout">
+            <div class="container my-4">
+                <h3>Leaves</h3>
+                <a t-attf-href="/my/leaves/apply" class="btn btn-primary">Request Time Off
+                    <i class="fa-solid fa-business-time"/>
+                </a>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Holiday Type</th>
+                            <th>Description</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>No. Of Days</th>
+                            <th>State</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="leaves" t-as="leave">
+                            <tr>
+                                <td><t t-esc="leave.holiday_status_id.name"/></td>
+                                <td><t t-esc="leave.name"/></td>
+                                <td><t t-esc="leave.date_from"/></td>
+                                <td><t t-esc="leave.date_to"/></td>
+                                <td><t t-esc="leave.number_of_days"/></td>
+                                <td><t t-esc="leave.state"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>

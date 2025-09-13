@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="portal_leave.LeaveApp">
+        <t t-component="CurrentScreen"/>
+    </t>
+
+    <t t-name="portal_leave.LeaveList">
+        <div class="container my-4">
+            <h3>My Leaves</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="state.leaves" t-as="leave">
+                        <tr>
+                            <td><t t-esc="leave.name"/></td>
+                            <td><t t-esc="leave.date_from"/></td>
+                            <td><t t-esc="leave.date_to"/></td>
+                            <td><t t-esc="leave.status"/></td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+            <button t-on-click="goToForm" class="btn btn-primary">Request Time Off</button>
+        </div>
+    </t>
+
+    <t t-name="portal_leave.LeaveForm">
+        <div class="container my-4">
+            <h3>Request Time Off</h3>
+            <form t-on-submit.prevent="submitForm">
+                <div class="form-group">
+                    <label>Leave Type</label>
+                    <select name="holiday_status_id"
+                            class="form-control"
+                            t-model="state.formData.holiday_status_id"
+                            t-on-change="updateField">
+                        <option value="">-- Select --</option>
+                        <t t-foreach="state.leaveTypes" t-as="type">
+                            <option t-att-value="type.id">
+                                <t t-esc="type.name"/>
+                            </option>
+                        </t>
+                    </select>
+                </div>
+
+                <div class="form-group mt-2">
+                    <label>Start Date</label>
+                    <input type="date"
+                           name="request_date_from"
+                           class="form-control"
+                           t-model="state.formData.request_date_from"
+                           t-on-change="updateField"/>
+                </div>
+
+                <div class="form-group mt-2">
+                    <label>End Date</label>
+                    <input type="date"
+                           name="request_date_to"
+                           class="form-control"
+                           t-model="state.formData.request_date_to"
+                           t-on-change="updateField"/>
+                </div>
+
+                <t t-if="isUnpaid">
+                    <div class="form-group mt-2">
+                        <label>Half Day</label>
+                        <select name="request_unit_half"
+                                class="form-control"
+                                t-model="state.formData.request_unit_half"
+                                t-on-change="updateField">
+                            <option value="am">Morning</option>
+                            <option value="pm">Afternoon</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label>Hours</label>
+                        <input type="number"
+                               step="0.5"
+                               name="request_unit_hours"
+                               class="form-control"
+                               t-model="state.formData.request_unit_hours"
+                               t-on-change="updateField"/>
+                    </div>
+                </t>
+
+                <div class="form-group mt-2">
+                    <label>Description</label>
+                    <textarea name="description"
+                              class="form-control"
+                              t-model="state.formData.description"
+                              t-on-input="updateField"/>
+                </div>
+
+                <button type="submit" class="btn btn-success mt-2">Submit</button>
+            </form>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <template id="portal_leave.leave_application_template" name="Time Off Request">
+        <t t-call="website.layout">
+            <div class="container my-4">
+                <h3>Time Off Request</h3>
+                <form action="/my/leaves/submit" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="form-group">
+                        <label>Leave Type</label>
+                        <select name="holiday_status_id" class="form-control">
+                            <t t-foreach="leave_types" t-as="type">
+                                <option t-att-value="type.id">
+                                    <t t-esc="type.name"/>
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label>Start Date</label>
+                        <input type="date" name="request_date_from" class="form-control"/>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label>End Date</label>
+                        <input type="date" name="request_date_to" class="form-control"/>
+                    </div>
+
+                    <t t-if="selected_leave_type and selected_leave_type.name == 'Unpaid'">
+                        <div>Yes Unpaid</div>
+                    </t>
+                    <t t-else="">
+                        <div>Not Unpaid</div>
+                    </t>
+
+                    <div class="form-group mt-2">
+                        <label>Description</label>
+                        <textarea name="description" class="form-control"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-success mt-2">Submit</button>
+                </form>
+
+            </div>
+        </t>
+    </template>
+</odoo>
