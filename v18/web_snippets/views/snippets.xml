@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <template id="product_catalog_snippet" inherit_id="website.snippets"
+              name="Product Catalog">
+        <xpath expr="//snippets[@id='snippet_groups']"
+               position="inside">
+            <t t-snippet="web_snippets.best_sellers_carousel"
+               t-thumbnail="/web_snippets/static/description/icon.png"/>
+        </xpath>
+    </template>
+</odoo>

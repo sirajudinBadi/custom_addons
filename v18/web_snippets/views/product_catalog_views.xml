@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Form view with Kanban for images -->
+    <record id="view_product_catalog_form" model="ir.ui.view">
+        <field name="name">view.product.catalog.form</field>
+        <field name="model">product.catalog</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="mrp" />
+                        <field name="selling_price" />
+                        <field name="rating" />
+                        <field name="tag" />
+                        <field name="tag_color" />
+                        <field name="text_color" />
+                        <field name="delivery" />
+                    </group>
+                    <group>
+                        <field name="image" widget="image" style="border-radius:50%; width:100px; height:100px;"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Tree view -->
+    <record id="web_snippets.view_product_catalog_tree" model="ir.ui.view">
+        <field name="name">view.product.catalog.tree</field>
+        <field name="model">product.catalog</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                        <field name="currency_id" />
+                        <field name="mrp" widget="monetary" />
+                        <field name="selling_price" widget="monetary" />
+                        <field name="rating" />
+                        <field name="tag" />
+                        <field name="tag_color" />
+                        <field name="text_color" />
+                        <field name="delivery" />
+            </list>
+        </field>
+    </record>
+
+
+</odoo>
