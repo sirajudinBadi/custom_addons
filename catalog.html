@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FNP-Gift Store</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="my-4">
+      <p class="h2 fw-bold px-3">Best Sellers</p>
+
+      <div class="position-relative">
+        <!-- Prev Button -->
+        <button
+          id="prevBtn"
+          class="btn btn-light position-absolute top-50 start-0 translate-middle-y shadow rounded-circle"
+          style="z-index: 10; display: none"
+        >
+          <img
+            src=" https://www.fnp.com/icons/arrow-left.svg"
+            style="color: transparent"
+            alt=""
+          />
+        </button>
+
+        <!-- Carousel Wrapper - full width, no padding -->
+        <div class="overflow-hidden w-100">
+          <ul
+            id="productCarousel"
+            class="d-flex gap-3 list-unstyled m-0 px-2"
+            style="
+              transition: transform 0.3s ease-in-out;
+              padding-left: 0;
+              padding-right: 0;
+            "
+          >
+            <!-- Example product item -->
+            <li class="border rounded-2 flex-shrink-0" style="width: 368px">
+              <img
+                src="https://m-i1.fnp.com/images/pr/l/v20250128171620/grateful-for-you-roses-in-jar-arrangement_1.jpg"
+                class="img-fluid rounded-top"
+                alt="Flowers"
+              />
+              <div class="p-3">
+                <!-- Product Title -->
+                <p class="fw-semibold mb-1" style="font-size: 1rem">
+                  Grateful For You Roses in jar Arrangement
+                </p>
+
+                <!-- Price -->
+                <div class="mb-1">
+                  <s class="text-muted" style="font-size: 0.9rem">₹999</s>
+                  <strong class="ms-1" style="font-size: 1rem">₹799</strong>
+                </div>
+
+                <!-- Delivery Time Badge -->
+                <span
+                  class="bg-warning text-dark px-2 py-1 rounded-2 fw-semibold"
+                  style="font-size: 0.85rem"
+                >
+                  30-60 mins
+                </span>
+
+                <!-- Delivery Text -->
+                <p class="text-primary mt-1 mb-0" style="font-size: 0.85rem">
+                  Earliest Delivery: Today
+                </p>
+              </div>
+            </li>
+            <li class="border rounded-2 flex-shrink-0" style="width: 368px">
+              <img
+                src="https://m-i1.fnp.com/images/pr/l/v20250128171620/grateful-for-you-roses-in-jar-arrangement_1.jpg"
+                class="img-fluid rounded-top"
+                alt="Flowers"
+              />
+              <div class="p-3">
+                <!-- Product Title -->
+                <p class="fw-semibold mb-1" style="font-size: 1rem">
+                  Grateful For You Roses in jar Arrangement
+                </p>
+
+                <!-- Price -->
+                <div class="mb-1">
+                  <s class="text-muted" style="font-size: 0.9rem">₹999</s>
+                  <strong class="ms-1" style="font-size: 1rem">₹799</strong>
+                </div>
+
+                <!-- Tag -->
+                <span
+                  class="bg-warning text-dark px-2 py-1 rounded-2 fw-semibold"
+                  style="font-size: 0.85rem"
+                >
+                  30-60 mins
+                </span>
+
+                <!-- Delivery Text -->
+                <p class="text-primary mt-1 mb-0" style="font-size: 0.85rem">
+                  Earliest Delivery: Today
+                </p>
+              </div>
+            </li>
+            <li class="border rounded-2 flex-shrink-0" style="width: 368px">
+              <img
+                src="https://m-i1.fnp.com/images/pr/l/v20250128171620/grateful-for-you-roses-in-jar-arrangement_1.jpg"
+                class="img-fluid rounded-top"
+                alt="Flowers"
+              />
+              <div class="p-3">
+                <!-- Product Title -->
+                <p class="fw-semibold mb-1" style="font-size: 1rem">
+                  Grateful For You Roses in jar Arrangement
+                </p>
+
+                <!-- Price -->
+                <div class="mb-1">
+                  <s class="text-muted" style="font-size: 0.9rem">₹999</s>
+                  <strong class="ms-1" style="font-size: 1rem">₹799</strong>
+                </div>
+
+                <!-- Delivery Time Badge -->
+                <span
+                  class="bg-warning text-dark px-2 py-1 rounded-2 fw-semibold"
+                  style="font-size: 0.85rem"
+                >
+                  30-60 mins
+                </span>
+
+                <!-- Delivery Text -->
+                <p class="text-primary mt-1 mb-0" style="font-size: 0.85rem">
+                  Earliest Delivery: Today
+                </p>
+              </div>
+            </li>
+            <li class="border rounded-2 flex-shrink-0" style="width: 368px">
+              <img
+                src="https://m-i1.fnp.com/images/pr/l/v20250128171620/grateful-for-you-roses-in-jar-arrangement_1.jpg"
+                class="img-fluid rounded-top"
+                alt="Flowers"
+              />
+              <div class="p-3">
+                <!-- Product Title -->
+                <p class="fw-semibold mb-1" style="font-size: 1rem">
+                  Grateful For You Roses in jar Arrangement
+                </p>
+
+                <!-- Price -->
+                <div class="mb-1">
+                  <s class="text-muted" style="font-size: 0.9rem">₹999</s>
+                  <strong class="ms-1" style="font-size: 1rem">₹799</strong>
+                </div>
+
+                <!-- Delivery Time Badge -->
+                <span
+                  class="bg-warning text-dark px-2 py-1 rounded-2 fw-semibold"
+                  style="font-size: 0.85rem"
+                >
+                  30-60 mins
+                </span>
+
+                <!-- Delivery Text -->
+                <p class="text-primary mt-1 mb-0" style="font-size: 0.85rem">
+                  Earliest Delivery: Today
+                </p>
+              </div>
+            </li>
+            <li class="border rounded-2 flex-shrink-0" style="width: 368px">
+              <img
+                src="https://m-i1.fnp.com/images/pr/l/v20250128171620/grateful-for-you-roses-in-jar-arrangement_1.jpg"
+                class="img-fluid rounded-top"
+                alt="Flowers"
+              />
+              <div class="p-3">
+                <!-- Product Title -->
+                <p class="fw-semibold mb-1" style="font-size: 1rem">
+                  Grateful For You Roses in jar Arrangement
+                </p>
+
+                <!-- Price -->
+                <div class="mb-1">
+                  <s class="text-muted" style="font-size: 0.9rem">₹999</s>
+                  <strong class="ms-1" style="font-size: 1rem">₹799</strong>
+                </div>
+
+                <!-- Delivery Time Badge -->
+                <span
+                  class="bg-warning text-dark px-2 py-1 rounded-2 fw-semibold"
+                  style="font-size: 0.85rem"
+                >
+                  30-60 mins
+                </span>
+
+                <!-- Delivery Text -->
+                <p class="text-primary mt-1 mb-0" style="font-size: 0.85rem">
+                  Earliest Delivery: Today
+                </p>
+              </div>
+            </li>
+            <li class="border rounded-2 flex-shrink-0" style="width: 368px">
+              <img
+                src="https://m-i1.fnp.com/images/pr/l/v20250128171620/grateful-for-you-roses-in-jar-arrangement_1.jpg"
+                class="img-fluid rounded-top"
+                alt="Flowers"
+              />
+              <div class="p-3">
+                <!-- Product Title -->
+                <p class="fw-semibold mb-1" style="font-size: 1rem">
+                  Grateful For You Roses in jar Arrangement
+                </p>
+
+                <!-- Price -->
+                <div class="mb-1">
+                  <s class="text-muted" style="font-size: 0.9rem">₹999</s>
+                  <strong class="ms-1" style="font-size: 1rem">₹799</strong>
+                </div>
+
+                <!-- Delivery Time Badge -->
+                <span
+                  class="bg-warning text-dark px-2 py-1 rounded-2 fw-semibold"
+                  style="font-size: 0.85rem"
+                >
+                  30-60 mins
+                </span>
+
+                <!-- Delivery Text -->
+                <p class="text-primary mt-1 mb-0" style="font-size: 0.85rem">
+                  Earliest Delivery: Today
+                </p>
+              </div>
+            </li>
+            <li class="border rounded-2 flex-shrink-0" style="width: 368px">
+              <img
+                src="https://m-i1.fnp.com/images/pr/l/v20250128171620/grateful-for-you-roses-in-jar-arrangement_1.jpg"
+                class="img-fluid rounded-top"
+                alt="Flowers"
+              />
+              <div class="p-3">
+                <!-- Product Title -->
+                <p class="fw-semibold mb-1" style="font-size: 1rem">
+                  Grateful For You Roses in jar Arrangement
+                </p>
+
+                <!-- Price -->
+                <div class="mb-1">
+                  <s class="text-muted" style="font-size: 0.9rem">₹999</s>
+                  <strong class="ms-1" style="font-size: 1rem">₹799</strong>
+                </div>
+
+                <!-- Delivery Time Badge -->
+                <span
+                  class="bg-warning text-dark px-2 py-1 rounded-2 fw-semibold"
+                  style="font-size: 0.85rem"
+                >
+                  30-60 mins
+                </span>
+
+                <!-- Delivery Text -->
+                <p class="text-primary mt-1 mb-0" style="font-size: 0.85rem">
+                  Earliest Delivery: Today
+                </p>
+              </div>
+            </li>
+            <li class="border rounded-2 flex-shrink-0" style="width: 368px">
+              <img
+                src="https://m-i1.fnp.com/images/pr/l/v20250128171620/grateful-for-you-roses-in-jar-arrangement_1.jpg"
+                class="img-fluid rounded-top"
+                alt="Flowers"
+              />
+              <div class="p-3">
+                <!-- Product Title -->
+                <p class="fw-semibold mb-1" style="font-size: 1rem">
+                  Grateful For You Roses in jar Arrangement
+                </p>
+
+                <!-- Price -->
+                <div class="mb-1">
+                  <s class="text-muted" style="font-size: 0.9rem">₹999</s>
+                  <strong class="ms-1" style="font-size: 1rem">₹799</strong>
+                </div>
+
+                <!-- Delivery Time Badge -->
+                <span
+                  class="bg-warning text-dark px-2 py-1 rounded-2 fw-semibold"
+                  style="font-size: 0.85rem"
+                >
+                  30-60 mins
+                </span>
+
+                <!-- Delivery Text -->
+                <p class="text-primary mt-1 mb-0" style="font-size: 0.85rem">
+                  Earliest Delivery: Today
+                </p>
+              </div>
+            </li>
+
+            <!-- Repeat or generate dynamically -->
+          </ul>
+        </div>
+
+        <!-- Next Button -->
+        <button
+          id="nextBtn"
+          class="btn btn-light position-absolute top-50 end-0 translate-middle-y shadow rounded-circle"
+          style="z-index: 10"
+        >
+          <img
+            src="https://www.fnp.com/icons/arrow-right.svg"
+            style="color: transparent"
+            alt=""
+          />
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const carousel = document.getElementById("productCarousel");
+      const nextBtn = document.getElementById("nextBtn");
+      const prevBtn = document.getElementById("prevBtn");
+
+      const productItems = carousel.querySelectorAll("li");
+      const visibleCount = 4;
+      const totalItems = productItems.length;
+
+      let currentIndex = 0;
+      const itemWidth = productItems[0].offsetWidth + 16; // li width + gap
+
+      function updateCarousel() {
+        carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        prevBtn.style.display = currentIndex === 0 ? "none" : "block";
+        nextBtn.style.display =
+          currentIndex >= totalItems - visibleCount ? "none" : "block";
+      }
+
+      nextBtn.addEventListener("click", () => {
+        if (currentIndex < totalItems - visibleCount) {
+          currentIndex++;
+          updateCarousel();
+        }
+      });
+
+      prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        }
+      });
+
+      updateCarousel();
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
